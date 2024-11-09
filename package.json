@@ -4,7 +4,7 @@
     "scripts": {
         "build": "tsc && vite build",
         "dev": "vite",
-        "test": "npx vitest"
+        "test": "vitest"
     },
     "devDependencies": {
         "@headlessui/react": "^2.0.0",
