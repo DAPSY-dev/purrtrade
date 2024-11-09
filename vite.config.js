@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import react from '@vitejs/plugin-react';
+import { configDefaults } from 'vitest/config';
 
 export default defineConfig({
     plugins: [
@@ -10,4 +11,11 @@ export default defineConfig({
         }),
         react(),
     ],
+    test: {
+        environment: 'jsdom',
+        globals: true,
+        setupFiles: ['./setupTests.js'],
+        include: ['./resources/js/**/*.test.{ts,tsx}'],
+        exclude: [...configDefaults.exclude, './node_modules/**/*'],
+    },
 });

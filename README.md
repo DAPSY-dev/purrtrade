@@ -2,4 +2,4 @@
 
 ## Documentation
 
-Project documentation directory: `./docs`
+All the documentation for the project lives in the `./docs` directory.
