@@ -1,15 +1,19 @@
+import { classNames } from "../utils/helpers";
+
 type LoaderProps = {
   fullPage?: boolean;
   className?: string;
 };
 
-function Loader({ fullPage = false, className = "" }: LoaderProps) {
+function Loader({ fullPage = false, className }: LoaderProps) {
+  const classes = classNames([
+    fullPage ? "fixed" : "absolute",
+    "inset-0 z-10 flex items-center justify-center p-4 bg-gray-100",
+    className,
+  ]);
+
   return (
-    <div
-      className={`${
-        fullPage ? "fixed" : "absolute"
-      } inset-0 z-10 flex items-center justify-center p-4 bg-gray-100 ${className}`}
-    >
+    <div className={classes}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"

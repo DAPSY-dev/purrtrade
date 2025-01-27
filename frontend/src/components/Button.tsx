@@ -1,4 +1,5 @@
 import { ReactNode, ButtonHTMLAttributes } from "react";
+import { classNames } from "../utils/helpers";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   children?: ReactNode;
@@ -6,16 +7,14 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 function Button({
   type = "button",
-  className = "",
+  className,
   children,
   ...rest
 }: ButtonProps) {
+  const classes = classNames(["py-2 px-3 bg-violet-700 text-white", className]);
+
   return (
-    <button
-      type={type}
-      className={`py-2 px-3 bg-violet-700 text-white ${className}`}
-      {...rest}
-    >
+    <button type={type} className={classes} {...rest}>
       {children}
     </button>
   );
