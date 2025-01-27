@@ -19,18 +19,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 $router = new Router(Config::API_BASE_URL);
 
-$router->addRoute('GET', '/data', function () {
-  echo json_encode(['message' => 'Hello from PHP API!']);
+$router->addRoute('GET', '/strings', function () {
+  $reflection = new ReflectionClass(Strings::class);
+  $constants = $reflection->getConstants();
+  echo json_encode($constants);
 });
 
-$router->addRoute('POST', '/data', function () {
-  $input = json_decode(file_get_contents('php://input'), true);
-  if (json_last_error() !== JSON_ERROR_NONE) {
-    http_response_code(400);
-    echo json_encode(['error' => Strings::INVALID_JSON]);
-    exit();
-  }
-  echo json_encode(['received' => $input]);
-});
+// $router->addRoute('GET', '/data', function () {
+//   echo json_encode(['message' => 'Hello from PHP API!']);
+// });
+
+// $router->addRoute('POST', '/data', function () {
+//   $input = json_decode(file_get_contents('php://input'), true);
+//   if (json_last_error() !== JSON_ERROR_NONE) {
+//     http_response_code(400);
+//     echo json_encode(['error' => Strings::INVALID_JSON]);
+//     exit();
+//   }
+//   echo json_encode(['received' => $input]);
+// });
 
 $router->dispatch();

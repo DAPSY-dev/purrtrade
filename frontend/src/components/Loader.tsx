@@ -22,8 +22,8 @@ function Loader({ fullPage = false, className = "" }: LoaderProps) {
             cy="12"
             r="9.5"
             fill="none"
-            stroke-linecap="round"
-            stroke-width="3"
+            strokeLinecap="round"
+            strokeWidth="3"
           >
             <animate
               attributeName="stroke-dasharray"

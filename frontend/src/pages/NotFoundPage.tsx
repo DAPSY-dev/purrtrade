@@ -1,6 +1,13 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router";
 
 function NotFoundPage() {
+  const { strings, loading, error } = useSelector(
+    (state: any) => state.strings
+  );
+
+  console.log(strings, loading, error);
+
   return (
     <div className="flex flex-col items-center justify-center gap-2 p-4 min-h-screen bg-gray-100 text-center">
       <h1 className="font-bold text-6xl text-gray-700">404</h1>
