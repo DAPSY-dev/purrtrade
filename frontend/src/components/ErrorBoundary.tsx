@@ -1,4 +1,5 @@
 import { useState, useEffect, ReactNode } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router";
 
 type ErrorBoundaryProps = {
@@ -7,6 +8,11 @@ type ErrorBoundaryProps = {
 
 function ErrorBoundary({ children }: ErrorBoundaryProps) {
   const [hasError, setHasError] = useState(false);
+  const {
+    strings,
+    loading: stringsLoading,
+    error: stringsError,
+  } = useSelector((state: any) => state.strings);
 
   useEffect(() => {
     function handleError(event: ErrorEvent | PromiseRejectionEvent) {
@@ -28,17 +34,26 @@ function ErrorBoundary({ children }: ErrorBoundaryProps) {
   }, []);
 
   if (hasError) {
+    if (stringsLoading) {
+      return null;
+    }
+
+    if (stringsError) {
+      console.error(stringsError);
+      return null;
+    }
+
     return (
       <div className="flex flex-col items-center justify-center gap-2 p-4 min-h-screen bg-gray-100 text-center">
-        <h1 className="font-bold text-6xl text-gray-700">Oops!</h1>
+        <h1 className="font-bold text-6xl text-gray-700">{strings["OOPS"]}</h1>
         <p className="text-lg text-gray-500">
-          Something went wrong. Please try again later.
+          {strings["SOMETHING_WENT_WRONG"]} {strings["PLEASE_TRY_AGAIN_LATER"]}
         </p>
         <Link
           to="/"
-          className="inline-block mt-4 px-6 py-3 bg-gray-700 text-white"
+          className="inline-block mt-4 px-6 py-3 bg-gray-700 text-white uppercase"
         >
-          Go Back Home
+          {strings["GO_BACK_HOME"]}
         </Link>
       </div>
     );
