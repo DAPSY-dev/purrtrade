@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Link } from "react-router";
+import Button from "../components/Button";
 
 function NotFoundPage() {
   const {
@@ -28,12 +28,9 @@ function NotFoundPage() {
       <p className="text-lg text-gray-500">
         {strings["PAGE_MIGHT_BE_MOVED_OR_DELETED"]}
       </p>
-      <Link
-        to="/"
-        className="inline-block mt-4 px-6 py-3 bg-gray-700 text-white uppercase"
-      >
+      <Button as="router-link" to="/" className="mt-4">
         {strings["GO_BACK_HOME"]}
-      </Link>
+      </Button>
     </div>
   );
 }

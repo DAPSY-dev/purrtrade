@@ -1,6 +1,6 @@
 import { useState, useEffect, ReactNode } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router";
+import Button from "./Button";
 
 type ErrorBoundaryProps = {
   children: ReactNode;
@@ -49,12 +49,9 @@ function ErrorBoundary({ children }: ErrorBoundaryProps) {
         <p className="text-lg text-gray-500">
           {strings["SOMETHING_WENT_WRONG"]} {strings["PLEASE_TRY_AGAIN_LATER"]}
         </p>
-        <Link
-          to="/"
-          className="inline-block mt-4 px-6 py-3 bg-gray-700 text-white uppercase"
-        >
+        <Button as="router-link" to="/" className="mt-4">
           {strings["GO_BACK_HOME"]}
-        </Link>
+        </Button>
       </div>
     );
   }
