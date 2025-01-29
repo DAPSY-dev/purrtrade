@@ -1,7 +1,7 @@
 <?php
-require_once "Config.php";
-require_once "Strings.php";
-require_once "Router.php";
+require_once __DIR__ . "/Config.php";
+require_once __DIR__ . "/Strings.php";
+require_once __DIR__ . "/Router.php";
 
 use App\Config;
 use App\Strings;
