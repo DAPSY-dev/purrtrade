@@ -6,8 +6,8 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router";
 import ErrorBoundary from "../components/ErrorBoundary";
 
-describe("ErrorBoundary component", function () {
-  const mockStore = createStore(function () {
+describe("ErrorBoundary component", () => {
+  const mockStore = createStore(() => {
     return {
       strings: {
         strings: {
@@ -30,7 +30,7 @@ describe("ErrorBoundary component", function () {
     );
   }
 
-  test("should render fallback UI when an error occurs", function () {
+  test("should render fallback UI when an error occurs", () => {
     function ProblemComponent() {
       throw new Error("Test error");
       return <></>;
@@ -43,7 +43,7 @@ describe("ErrorBoundary component", function () {
     expect(screen.getByText("Oops!")).toBeInTheDocument();
   });
 
-  test("should render children if no error occurs", function () {
+  test("should render children if no error occurs", () => {
     renderWithProvider(
       <ErrorBoundary>
         <div>Children</div>

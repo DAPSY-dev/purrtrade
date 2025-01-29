@@ -10,7 +10,7 @@ const initialState = {
   error: null,
 };
 
-const stringsReducer = (state = initialState, action: any) => {
+function stringsReducer(state = initialState, action: any) {
   switch (action.type) {
     case FETCH_STRINGS_REQUEST:
       return { ...state, loading: true, error: null };
@@ -21,6 +21,6 @@ const stringsReducer = (state = initialState, action: any) => {
     default:
       return state;
   }
-};
+}
 
 export default stringsReducer;
