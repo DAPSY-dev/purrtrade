@@ -1,7 +1,7 @@
 <?php
 namespace App\Router;
 
-require "Strings.php";
+require_once "Strings.php";
 
 use App\Strings;
 
