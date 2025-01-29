@@ -25,7 +25,7 @@ function HomePage() {
 
       <div className="mt-4">
         <Button as="router-link" to="/x">
-          Button
+          Go to /x
         </Button>
       </div>
     </div>
