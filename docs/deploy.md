@@ -8,8 +8,12 @@
 
 - Update all paths in `/frontend/index.html`;
 
+- Update `/frontend/public/site.webmanifest`;
+
 - Deploy the backend;
 
 - Build the frontend;
 
 - Deploy the frontend;
+
+- ? Generate `sitemap.xml` ?;
