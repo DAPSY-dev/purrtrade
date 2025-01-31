@@ -2,12 +2,37 @@
 <html lang="en">
   <head>
     <title>App</title>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="App" />
-    <link rel="icon" type="image/svg+xml" href="./images/favicon.svg" />
+    <meta name="apple-mobile-web-app-title" content="App" />
+    <meta property="og:title" content="App" />
+    <meta property="og:description" content="App" />
+    <meta property="og:image" content="http://localhost:5173/images/og.png" />
+    <meta property="og:url" content="http://localhost:5173/" />
+    <meta name="twitter:title" content="App" />
+    <meta name="twitter:description" content="App" />
+    <meta name="twitter:image" content="http://localhost:5173/images/og.png" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="./images/favicon/favicon-96x96.png"
+    />
+    <link rel="icon" type="image/svg+xml" href="./images/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="./images/favicon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./images/favicon/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="./site.webmanifest" />
+
     <script type="module" src="./src/main.tsx"></script>
   </head>
+
   <body>
     <div id="root"></div>
   </body>

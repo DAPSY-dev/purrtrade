@@ -4,11 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host",
+    "dev": "vite --port 5173 --host",
     "test": "vitest",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview --host"
+    "preview": "vite preview --host",
+    "faviconCheck": "npx realfavicon check 5173"
   },
   "dependencies": {
     "@types/redux-thunk": "^2.1.32",
