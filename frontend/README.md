@@ -2,14 +2,18 @@
 
 ## Scripts
 
-Install: `npm install`
+- Install: `npm install`
 
-Start dev: `npm run dev`
+- Start dev: `npm run dev`
 
-Test: `npm run test`
+- Test: `npm run test`
 
-Build: `npm run build`
+- Build: `npm run build`
 
-Lint: `npm run lint`
+- Lint: `npm run lint`
 
-Preview: `npm run preview`
+- Preview: `npm run preview`
+
+- Favicon check: `npm run faviconCheck`
+
+  - Start dev before running favicon check

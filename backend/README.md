@@ -2,6 +2,6 @@
 
 ## Scripts
 
-Install: `composer install`
+- Install: `composer install`
 
-Test: `composer test`
+- Test: `composer test`
