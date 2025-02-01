@@ -20,4 +20,4 @@
 
 - Favicon check: `npm run faviconCheck`
 
-  - Start dev before running favicon check
+  - Start dev or build and preview before running favicon check
