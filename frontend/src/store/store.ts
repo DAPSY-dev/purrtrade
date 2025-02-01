@@ -1,15 +1,26 @@
-import { createStore, applyMiddleware, compose } from "redux";
-import { thunk } from "redux-thunk";
-import rootReducer from "./reducers";
+import {
+  legacy_createStore as createStore,
+  applyMiddleware,
+  compose,
+  Action,
+  Reducer,
+  Dispatch,
+} from "redux";
+import { thunk, ThunkDispatch } from "redux-thunk";
+import rootReducer, { RootState } from "./reducers";
 
 const composeEnhancers =
   (process.env.NODE_ENV === "development" &&
-    (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
   compose;
 
 const store = createStore(
-  rootReducer,
+  rootReducer as Reducer,
   composeEnhancers(applyMiddleware(thunk))
 );
+
+export type AppDispatch = Dispatch;
+export type ThunkDispatchType = ThunkDispatch<RootState, undefined, Action>;
+export type StringMap = { [key: string]: string };
 
 export default store;

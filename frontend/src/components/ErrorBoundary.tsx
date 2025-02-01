@@ -3,9 +3,11 @@ import { connect } from "react-redux";
 import Logo from "./Logo";
 import Button from "./Button";
 import Copyright from "./Copyright";
+import { StringMap } from "../store/store";
+import { RootState } from "../store/reducers";
 
 type ErrorBoundaryProps = {
-  strings: { [key: string]: string };
+  strings: StringMap;
   stringsLoading: boolean;
   stringsError: string | null;
   children: ReactNode;
@@ -70,7 +72,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   }
 }
 
-function mapStateToProps(state: any) {
+function mapStateToProps(state: RootState) {
   return {
     strings: state.strings.strings,
     stringsLoading: state.strings.loading,
