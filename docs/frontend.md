@@ -1,5 +1,9 @@
 # Front-End
 
+## Installation prerequisites
+
+- Node.js: `v20.18.0`
+
 ## Scripts
 
 - Install: `npm install`
