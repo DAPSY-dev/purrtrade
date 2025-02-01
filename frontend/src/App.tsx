@@ -5,7 +5,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import Loader from "./components/Loader";
 import { fetchStrings } from "./store/actions/strings-actions";
 
-const MainLayout = lazy(() => import("./pages/Layout/MainLayout"));
+const MainLayout = lazy(() => import("./pages/layout/MainLayout"));
 const HomePage = lazy(() => import("./pages/HomePage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
