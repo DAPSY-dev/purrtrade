@@ -8,7 +8,7 @@
     "test": "vitest",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview --host",
+    "preview": "vite preview --port 5173 --host",
     "faviconCheck": "npx realfavicon check 5173"
   },
   "dependencies": {
