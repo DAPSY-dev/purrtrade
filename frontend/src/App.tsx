@@ -5,7 +5,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import Loader from "./components/Loader";
 import { fetchStrings } from "./store/actions/strings-actions";
 
-const MainLayout = lazy(() => import("./pages/MainLayout"));
+const MainLayout = lazy(() => import("./pages/Layout/MainLayout"));
 const HomePage = lazy(() => import("./pages/HomePage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
@@ -24,11 +24,6 @@ function App() {
             <Route element={<MainLayout />}>
               <Route index element={<HomePage />} />
             </Route>
-
-            {/* <Route element={<AuthLayout />}>
-              <Route path="login" element={<Login />} />
-              <Route path="register" element={<Register />} />
-            </Route> */}
 
             <Route path="*" element={<NotFoundPage />} />
           </Routes>

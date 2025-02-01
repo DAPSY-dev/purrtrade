@@ -1,6 +1,8 @@
 import { Component, ReactNode, ErrorInfo } from "react";
 import { connect } from "react-redux";
+import Logo from "./Logo";
 import Button from "./Button";
+import Copyright from "./Copyright";
 
 type ErrorBoundaryProps = {
   strings: { [key: string]: string };
@@ -43,17 +45,23 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
       }
 
       return (
-        <div className="flex flex-col items-center justify-center gap-2 p-4 min-h-screen bg-gray-100 text-center">
+        <div className="flex flex-col items-center justify-start gap-2 py-12 px-4 min-h-dvh bg-gray-100 text-center">
+          <Logo className="mb-12" />
+
           <h1 className="font-bold text-6xl text-gray-700">
             {strings["OOPS"]}
           </h1>
+
           <p className="text-lg text-gray-500">
             {strings["SOMETHING_WENT_WRONG"]}{" "}
             {strings["PLEASE_TRY_AGAIN_LATER"]}
           </p>
-          <Button as="router-link" to="/" className="mt-4">
+
+          <Button as="anchor" href="/" className="mt-4">
             {strings["GO_BACK_HOME"]}
           </Button>
+
+          <Copyright className="mt-12" />
         </div>
       );
     }

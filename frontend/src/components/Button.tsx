@@ -21,7 +21,7 @@ function Button({
   ...rest
 }: ButtonProps) {
   const classes = classNames([
-    "inline-block px-6 py-3 bg-gray-700 text-white transition-colors hover:bg-gray-600",
+    "inline-block px-6 py-3 bg-gray-700 rounded-full text-white transition-colors hover:bg-gray-600",
     className,
   ]);
 
