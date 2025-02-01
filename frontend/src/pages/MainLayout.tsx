@@ -1,10 +1,21 @@
 import { Outlet } from "react-router";
+import Logo from "../components/Logo";
 
 function MainLayout() {
   return (
-    <main className="min-h-screen bg-gray-100">
-      <Outlet />
-    </main>
+    <div className="min-h-screen bg-gray-100">
+      <header>
+        <Logo />
+      </header>
+      <main>
+        <Outlet />
+      </main>
+      <footer>
+        <span>
+          <small>&copy; Purrtrade</small>
+        </span>
+      </footer>
+    </div>
   );
 }
 
