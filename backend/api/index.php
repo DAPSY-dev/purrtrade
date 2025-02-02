@@ -1,4 +1,5 @@
 <?php
+// require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . "/Config.php";
 // require_once __DIR__ . "/Strings.php";
 require_once __DIR__ . "/Router.php";
@@ -19,12 +20,19 @@ if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
   exit();
 }
 
+// $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "/../");
+// $dotenv->load();
+
 $router = new Router(Config\ENDPOINTS["API_BASE_URL"]);
 
 $router->addRoute("GET", "/strings", function () {
   $stringsController = new StringsController();
   $stringsController->getStrings();
 });
+
+// $router->addRoute("GET", "/env-test", function () {
+//   echo json_encode(["DB_HOST" => $_ENV['DB_HOST']]);
+// });
 
 // $router->addRoute("GET", "/data", function () {
 //   echo json_encode(["message" => "Hello from PHP API!"]);

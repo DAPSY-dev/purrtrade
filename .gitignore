@@ -1,7 +1,5 @@
-# Logs
-logs
-*.log
-npm-debug.log*
+# Environment
+.env
 
 # Build and dependencies
 backend/vendor
@@ -9,6 +7,11 @@ frontend/node_modules
 frontend/dist
 frontend/dist-ssr
 *.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
 
 # Editor directories and files
 .vscode/*

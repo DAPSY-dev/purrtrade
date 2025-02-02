@@ -4,6 +4,12 @@
 
 - Node.js: `v20.18.0`
 
+## Installation
+
+- Update `/frontend/src/config/api-config.ts`;
+
+- Install dependencies;
+
 ## Scripts
 
 - Install: `npm install`
