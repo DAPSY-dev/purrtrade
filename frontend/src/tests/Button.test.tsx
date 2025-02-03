@@ -61,9 +61,9 @@ describe("Button component", () => {
 
   test('logs an error for invalid "as" prop value', () => {
     const consoleSpy = vi.spyOn(console, "error").mockImplementation(() => {});
-    // @ts-expect-error Invalid 'as' prop for testing purposes
+    // @ts-expect-error Invalid "as" prop for testing purposes
     render(<Button as="invalid">Click me</Button>);
-    expect(consoleSpy).toHaveBeenCalledWith("Invalid 'as' prop value: invalid");
+    expect(consoleSpy).toHaveBeenCalledWith('Invalid "as" prop value: invalid');
     consoleSpy.mockRestore();
   });
 });

@@ -55,7 +55,7 @@ function Button({
       );
 
     default:
-      console.error(`Invalid 'as' prop value: ${as}`);
+      console.error(`Invalid "as" prop value: ${as}`);
       return null;
   }
 }
