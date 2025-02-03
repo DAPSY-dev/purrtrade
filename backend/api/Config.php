@@ -1,7 +1,12 @@
 <?php
 namespace App\Config;
 
-const ENDPOINTS = [
-  "API_BASE_URL" => "/purrtrade/backend/api",
-  "FRONTEND_URL" => "http://localhost:5173",
-];
+require_once __DIR__ . "/../vendor/autoload.php";
+
+$dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . "/../");
+$dotenv->load();
+
+define("App\Config\ENDPOINTS", [
+  "API_BASE_URL" => $_ENV["API_BASE_URL"],
+  "FRONTEND_URL" => $_ENV["FRONTEND_URL"],
+]);

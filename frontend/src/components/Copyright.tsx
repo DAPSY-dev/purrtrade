@@ -5,7 +5,7 @@ type CopyrightProps = {
 function Copyright({ className }: CopyrightProps) {
   return (
     <span className={className}>
-      <small>&copy; Purrtrade</small>
+      <small>&copy; {import.meta.env.VITE_APP_NAME}</small>
     </span>
   );
 }

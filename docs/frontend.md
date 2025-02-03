@@ -6,8 +6,6 @@
 
 ## Installation
 
-- Update `/frontend/src/config/api-config.ts`;
-
 - Install dependencies;
 
 ## Scripts

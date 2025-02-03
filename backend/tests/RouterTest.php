@@ -3,8 +3,8 @@ require_once __DIR__ . "/../api/Config.php";
 require_once __DIR__ . "/../api/Router.php";
 
 use PHPUnit\Framework\TestCase;
-use App\Config;
 use App\Router\Router;
+use const App\Config\ENDPOINTS;
 
 class RouterTest extends TestCase
 {
@@ -12,7 +12,7 @@ class RouterTest extends TestCase
 
   protected function setUp(): void
   {
-    $this->router = new Router(Config\ENDPOINTS["API_BASE_URL"]);
+    $this->router = new Router(ENDPOINTS["API_BASE_URL"]);
   }
 
   public function testAddRoute()
@@ -37,7 +37,7 @@ class RouterTest extends TestCase
       echo "Hello, World!";
     });
 
-    $_SERVER["REQUEST_URI"] = Config\ENDPOINTS["API_BASE_URL"] . "/test";
+    $_SERVER["REQUEST_URI"] = ENDPOINTS["API_BASE_URL"] . "/test";
     $_SERVER["REQUEST_METHOD"] = "GET";
 
     ob_start();
@@ -53,7 +53,7 @@ class RouterTest extends TestCase
       echo "Hello, World!";
     });
 
-    $_SERVER["REQUEST_URI"] = Config\ENDPOINTS["API_BASE_URL"] . "/another";
+    $_SERVER["REQUEST_URI"] = ENDPOINTS["API_BASE_URL"] . "/another";
     $_SERVER["REQUEST_METHOD"] = "GET";
 
     ob_start();
@@ -73,7 +73,7 @@ class RouterTest extends TestCase
       echo "Hello, World!";
     });
 
-    $_SERVER["REQUEST_URI"] = Config\ENDPOINTS["API_BASE_URL"] . "/test";
+    $_SERVER["REQUEST_URI"] = ENDPOINTS["API_BASE_URL"] . "/test";
     $_SERVER["REQUEST_METHOD"] = "POST";
 
     ob_start();
@@ -93,7 +93,7 @@ class RouterTest extends TestCase
       echo "Hello, World!";
     });
 
-    $_SERVER["REQUEST_URI"] = Config\ENDPOINTS["API_BASE_URL"] . "/another";
+    $_SERVER["REQUEST_URI"] = ENDPOINTS["API_BASE_URL"] . "/another";
     $_SERVER["REQUEST_METHOD"] = "GET";
 
     ob_start();

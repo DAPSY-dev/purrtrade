@@ -1,16 +1,16 @@
 <?php
-// require_once __DIR__ . '/../vendor/autoload.php';
+// require_once __DIR__ . "/../vendor/autoload.php";
 require_once __DIR__ . "/Config.php";
 // require_once __DIR__ . "/Strings.php";
 require_once __DIR__ . "/Router.php";
 require_once __DIR__ . "/controllers/StringsController.php";
 
-use App\Config;
-// use App\Strings;
 use App\Router\Router;
 use App\StringsController\StringsController;
+use const App\Config\ENDPOINTS;
+// use const App\Strings\TEXTS;
 
-header("Access-Control-Allow-Origin: " . Config\ENDPOINTS["FRONTEND_URL"]);
+header("Access-Control-Allow-Origin: " . ENDPOINTS["FRONTEND_URL"]);
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 header("Content-Type: application/json");
@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
 // $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "/../");
 // $dotenv->load();
 
-$router = new Router(Config\ENDPOINTS["API_BASE_URL"]);
+$router = new Router(ENDPOINTS["API_BASE_URL"]);
 
 $router->addRoute("GET", "/strings", function () {
   $stringsController = new StringsController();
@@ -31,7 +31,7 @@ $router->addRoute("GET", "/strings", function () {
 });
 
 // $router->addRoute("GET", "/env-test", function () {
-//   echo json_encode(["DB_HOST" => $_ENV['DB_HOST']]);
+//   echo json_encode(["DB_HOST" => $_ENV["DB_HOST"]]);
 // });
 
 // $router->addRoute("GET", "/data", function () {
@@ -42,7 +42,7 @@ $router->addRoute("GET", "/strings", function () {
 //   $input = json_decode(file_get_contents("php://input"), true);
 //   if (json_last_error() !== JSON_ERROR_NONE) {
 //     http_response_code(400);
-//     echo json_encode(["error" => Strings\TEXTS["INVALID_JSON"]]);
+//     echo json_encode(["error" => TEXTS["INVALID_JSON"]]);
 //     exit();
 //   }
 //   echo json_encode(["received" => $input]);

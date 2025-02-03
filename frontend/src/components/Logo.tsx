@@ -13,7 +13,7 @@ function Logo({ className }: LogoProps) {
       <picture className="block max-w-full">
         <img
           src="/images/logo/logo.svg"
-          alt="Purrtrade"
+          alt={import.meta.env.VITE_APP_NAME}
           width="300"
           height="64"
         />

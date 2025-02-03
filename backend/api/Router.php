@@ -3,7 +3,7 @@ namespace App\Router;
 
 require_once __DIR__ . "/Strings.php";
 
-use App\Strings;
+use const App\Strings\TEXTS;
 
 class Router
 {
@@ -37,6 +37,6 @@ class Router
     }
 
     http_response_code(404);
-    echo json_encode(["error" => Strings\TEXTS["ENDPOINT_NOT_FOUND"]]);
+    echo json_encode(["error" => TEXTS["ENDPOINT_NOT_FOUND"]]);
   }
 }

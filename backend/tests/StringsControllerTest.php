@@ -3,7 +3,7 @@ require_once __DIR__ . "/../api/controllers/StringsController.php";
 
 use PHPUnit\Framework\TestCase;
 use App\StringsController\StringsController;
-use App\Strings;
+use const App\Strings\TEXTS;
 
 class StringsControllerTest extends TestCase
 {
@@ -15,7 +15,7 @@ class StringsControllerTest extends TestCase
     $controller->getStrings();
     $output = ob_get_clean();
 
-    $expectedOutput = json_encode(Strings\TEXTS);
+    $expectedOutput = json_encode(TEXTS);
 
     $this->assertEquals($expectedOutput, $output);
   }
