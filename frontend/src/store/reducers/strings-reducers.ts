@@ -25,10 +25,13 @@ function stringsReducer(
   switch (action.type) {
     case FETCH_STRINGS_REQUEST:
       return { ...state, loading: true, error: null };
+
     case FETCH_STRINGS_SUCCESS:
       return { ...state, loading: false, strings: action.payload };
+
     case FETCH_STRINGS_FAILURE:
       return { ...state, loading: false, error: action.error };
+
     default:
       return state;
   }
