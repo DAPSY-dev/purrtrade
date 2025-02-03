@@ -34,8 +34,10 @@ export function fetchStrings() {
         }
       });
 
-    return () => {
-      controller.abort();
+    return {
+      abort() {
+        controller.abort();
+      },
     };
   };
 }

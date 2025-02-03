@@ -14,7 +14,7 @@ function App() {
   const dispatch = useDispatch<ThunkDispatchType>();
 
   useEffect(() => {
-    const abortFetchStrings = dispatch(fetchStrings());
+    const { abort: abortFetchStrings } = dispatch(fetchStrings());
 
     return () => {
       abortFetchStrings();
