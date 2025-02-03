@@ -12,8 +12,12 @@ export type StringsAction =
 
 export function fetchStrings() {
   return function (dispatch: AppDispatch) {
+    const controller = new AbortController();
+    const signal = controller.signal;
+
     dispatch({ type: FETCH_STRINGS_REQUEST });
-    fetch(API_ENDPOINTS.strings)
+
+    fetch(API_ENDPOINTS.strings, { signal })
       .then((response) => response.json())
       .then((data) => {
         dispatch({
@@ -22,10 +26,16 @@ export function fetchStrings() {
         });
       })
       .catch((error) => {
-        dispatch({
-          type: FETCH_STRINGS_FAILURE,
-          payload: error.message,
-        });
+        if (error.name !== "AbortError") {
+          dispatch({
+            type: FETCH_STRINGS_FAILURE,
+            error: error.message,
+          });
+        }
       });
+
+    return () => {
+      controller.abort();
+    };
   };
 }

@@ -14,9 +14,12 @@ function App() {
   const dispatch = useDispatch<ThunkDispatchType>();
 
   useEffect(() => {
-    dispatch(fetchStrings());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    const abortFetchStrings = dispatch(fetchStrings());
+
+    return () => {
+      abortFetchStrings();
+    };
+  }, [dispatch]);
 
   return (
     <BrowserRouter>
