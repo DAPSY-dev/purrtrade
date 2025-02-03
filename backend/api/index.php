@@ -5,6 +5,7 @@ require_once __DIR__ . "/Config.php";
 require_once __DIR__ . "/Router.php";
 require_once __DIR__ . "/controllers/StringsController.php";
 
+// use \Dotenv\Dotenv;
 use App\Router\Router;
 use App\StringsController\StringsController;
 use const App\Config\ENDPOINTS;
@@ -20,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
   exit();
 }
 
-// $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "/../");
+// $dotenv = Dotenv::createImmutable(__DIR__ . "/../");
 // $dotenv->load();
 
 $router = new Router(ENDPOINTS["API_BASE_URL"]);
