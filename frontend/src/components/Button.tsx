@@ -1,6 +1,6 @@
 import { ReactNode, ButtonHTMLAttributes, AnchorHTMLAttributes } from "react";
 import { Link, LinkProps } from "react-router";
-import { classNames } from "../utils/helpers";
+import { classNames } from "@/utils/helpers";
 
 type ButtonProps = (
   | ButtonHTMLAttributes<HTMLButtonElement>

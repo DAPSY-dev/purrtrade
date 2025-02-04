@@ -1,5 +1,5 @@
-import { AppDispatch, StringMap } from "../store";
-import { API_ENDPOINTS } from "../../config/api-config";
+import { AppDispatch, StringMap } from "@/store/store";
+import { API_ENDPOINTS } from "@/config/api-config";
 
 export const FETCH_STRINGS_REQUEST = "FETCH_STRINGS_REQUEST";
 export const FETCH_STRINGS_SUCCESS = "FETCH_STRINGS_SUCCESS";

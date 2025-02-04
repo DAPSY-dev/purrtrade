@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { classNames } from "../utils/helpers";
+import { classNames } from "@/utils/helpers";
 
 type LogoProps = {
   className?: string;

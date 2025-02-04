@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import stringsReducer from "./strings-reducers";
+import stringsReducer from "@/store/reducers/strings-reducers";
 
 const rootReducer = combineReducers({
   strings: stringsReducer,

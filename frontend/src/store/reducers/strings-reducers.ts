@@ -1,10 +1,10 @@
-import { StringMap } from "../store";
+import { StringMap } from "@/store/store";
 import {
   FETCH_STRINGS_REQUEST,
   FETCH_STRINGS_SUCCESS,
   FETCH_STRINGS_FAILURE,
   StringsAction,
-} from "../actions/strings-actions";
+} from "@/store/actions/strings-actions";
 
 type StringsState = {
   strings: StringMap;

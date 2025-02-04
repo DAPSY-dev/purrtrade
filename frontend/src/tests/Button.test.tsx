@@ -2,7 +2,7 @@ import { describe, test, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router";
-import Button from "../components/Button";
+import Button from "@/components/Button";
 
 describe("Button component", () => {
   test("renders a button element by default", () => {

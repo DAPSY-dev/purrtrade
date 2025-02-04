@@ -1,5 +1,5 @@
-import Wrapper from "./Wrapper";
-import Copyright from "./Copyright";
+import Wrapper from "@/components/Wrapper";
+import Copyright from "@/components/Copyright";
 
 type MainFooterProps = {
   className?: string;

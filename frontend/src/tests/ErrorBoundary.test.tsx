@@ -1,10 +1,10 @@
 import { describe, test, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { ReactNode } from "react";
-import { createStore } from "redux";
+import { legacy_createStore as createStore } from "redux";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router";
-import ErrorBoundary from "../components/ErrorBoundary";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 describe("ErrorBoundary component", () => {
   const mockStore = createStore(() => {

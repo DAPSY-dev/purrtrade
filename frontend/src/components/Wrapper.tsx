@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { classNames } from "../utils/helpers";
+import { classNames } from "@/utils/helpers";
 
 type WrapperProps = {
   className?: string;

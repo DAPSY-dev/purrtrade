@@ -1,10 +1,10 @@
 import { Component, ReactNode, ErrorInfo } from "react";
 import { connect } from "react-redux";
-import Logo from "./Logo";
-import Button from "./Button";
-import Copyright from "./Copyright";
-import { StringMap } from "../store/store";
-import { RootState } from "../store/reducers";
+import Logo from "@/components/Logo";
+import Button from "@/components/Button";
+import Copyright from "@/components/Copyright";
+import { StringMap } from "@/store/store";
+import { RootState } from "@/store/reducers";
 
 type ErrorBoundaryProps = {
   strings: StringMap;

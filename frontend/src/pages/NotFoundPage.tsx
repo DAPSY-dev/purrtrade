@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
-import Logo from "../components/Logo";
-import Button from "../components/Button";
-import Copyright from "../components/Copyright";
-import { RootState } from "../store/reducers";
+import Logo from "@/components/Logo";
+import Button from "@/components/Button";
+import Copyright from "@/components/Copyright";
+import { RootState } from "@/store/reducers";
 
 function NotFoundPage() {
   const {

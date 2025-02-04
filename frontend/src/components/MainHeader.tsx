@@ -1,5 +1,5 @@
-import Wrapper from "./Wrapper";
-import Logo from "./Logo";
+import Wrapper from "@/components/Wrapper";
+import Logo from "@/components/Logo";
 
 type MainHeaderProps = {
   className?: string;

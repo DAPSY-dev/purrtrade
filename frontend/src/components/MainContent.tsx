@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import Wrapper from "./Wrapper";
+import Wrapper from "@/components/Wrapper";
 
 type MainContentProps = {
   className?: string;

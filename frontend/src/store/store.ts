@@ -7,7 +7,7 @@ import {
   Dispatch,
 } from "redux";
 import { thunk, ThunkDispatch } from "redux-thunk";
-import rootReducer, { RootState } from "./reducers";
+import rootReducer, { RootState } from "@/store/reducers";
 
 const composeEnhancers =
   (process.env.NODE_ENV === "development" &&
