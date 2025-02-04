@@ -1,6 +1,7 @@
 import { useEffect, Suspense, lazy } from "react";
 import { useDispatch } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router";
+import SEO from "@/components/SEO";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import Loader from "@/components/Loader";
 import { ThunkDispatchType } from "@/store/store";
@@ -22,19 +23,23 @@ function App() {
   }, [dispatch]);
 
   return (
-    <BrowserRouter>
-      <ErrorBoundary>
-        <Suspense fallback={<Loader fullPage />}>
-          <Routes>
-            <Route element={<MainLayout />}>
-              <Route index element={<HomePage />} />
-            </Route>
+    <>
+      <SEO />
 
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </Suspense>
-      </ErrorBoundary>
-    </BrowserRouter>
+      <BrowserRouter>
+        <ErrorBoundary>
+          <Suspense fallback={<Loader fullPage />}>
+            <Routes>
+              <Route element={<MainLayout />}>
+                <Route index element={<HomePage />} />
+              </Route>
+
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </Suspense>
+        </ErrorBoundary>
+      </BrowserRouter>
+    </>
   );
 }
 
