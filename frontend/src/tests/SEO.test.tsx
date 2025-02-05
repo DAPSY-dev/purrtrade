@@ -1,10 +1,11 @@
 import { describe, test, expect, beforeAll, afterAll, vi } from "vitest";
 import { render, waitFor } from "@testing-library/react";
+import { ComponentProps } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import SEO from "@/components/SEO";
 
 describe("SEO component", () => {
-  function renderSEO(props: React.ComponentProps<typeof SEO>) {
+  function renderSEO(props: ComponentProps<typeof SEO>) {
     return render(
       <HelmetProvider>
         <SEO {...props} />
