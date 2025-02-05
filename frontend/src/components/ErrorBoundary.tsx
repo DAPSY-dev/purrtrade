@@ -47,14 +47,14 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
       }
 
       return (
-        <div className="flex flex-col items-center justify-start gap-2 py-12 px-4 min-h-dvh bg-gray-100 text-center">
+        <div className="flex flex-col items-center justify-start gap-2 py-12 px-4 min-h-dvh bg-gray-100">
           <Logo className="mb-12" />
 
-          <h1 className="font-bold text-6xl text-gray-700">
+          <h1 className="font-bold text-6xl text-gray-700 text-center">
             {strings["OOPS"]}
           </h1>
 
-          <p className="text-lg text-gray-500">
+          <p className="text-lg text-gray-700 text-center">
             {strings["SOMETHING_WENT_WRONG"]}{" "}
             {strings["PLEASE_TRY_AGAIN_LATER"]}
           </p>

@@ -8,7 +8,7 @@ function MainLayout() {
     <div className="grid grid-rows-[auto_1fr_auto] min-h-dvh bg-gray-100">
       <MainHeader className="py-4" />
 
-      <MainContent>
+      <MainContent className="py-4">
         <Outlet />
       </MainContent>
 

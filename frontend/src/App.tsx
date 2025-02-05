@@ -32,9 +32,8 @@ function App() {
             <Routes>
               <Route element={<MainLayout />}>
                 <Route index element={<HomePage />} />
+                <Route path="*" element={<NotFoundPage />} />
               </Route>
-
-              <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Suspense>
         </ErrorBoundary>
