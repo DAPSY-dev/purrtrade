@@ -8,10 +8,10 @@ type StackProps = {
   children?: ReactNode;
 };
 
-function Stack({ direction, gap, className, children }: StackProps) {
+function Stack({ direction = "column", gap, className, children }: StackProps) {
   const classes = classNames([
     "flex",
-    direction === "row" ? "flex-row" : "flex-col",
+    direction === "column" ? "flex-col" : "flex-row",
     gap ? `gap-${gap}` : null,
     className,
   ]);
