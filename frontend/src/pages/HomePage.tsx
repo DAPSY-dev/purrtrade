@@ -1,5 +1,6 @@
 import SEO from "@/components/SEO";
 import Button from "@/components/Button";
+import Box from "@/components/Box";
 
 function HomePage() {
   return (
@@ -9,6 +10,11 @@ function HomePage() {
 
       <div>
         <h1>Home page</h1>
+
+        <Box className="grid sm:grid-cols-2 gap-4 my-4">
+          <div className="h-15 bg-gray-700 rounded-sm"></div>
+          <div className="h-15 bg-gray-700 rounded-sm"></div>
+        </Box>
 
         <div className="pt-4">
           <Button as="router-link" to="/x">

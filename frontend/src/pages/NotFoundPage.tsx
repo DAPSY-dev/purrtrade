@@ -24,7 +24,7 @@ function NotFoundPage() {
     <>
       <SEO title={strings["TITLE_404"]} />
 
-      <Box className="flex flex-col place-items-center gap-2 py-12">
+      <Box className="grid place-items-center gap-2 py-12">
         <h1 className="font-bold text-6xl text-gray-700 text-center">
           {strings["TITLE_404"]}
         </h1>
