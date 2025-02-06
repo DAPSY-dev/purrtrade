@@ -1,6 +1,6 @@
 import SEO from "@/components/SEO";
-import Button from "@/components/Button";
 import Box from "@/components/Box";
+import Button from "@/components/Button";
 
 function HomePage() {
   return (
