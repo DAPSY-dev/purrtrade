@@ -14,4 +14,4 @@
 
 - Deploy the frontend;
 
-- ? Generate `sitemap.xml` ?;
+- **TODO:** Generate `sitemap.xml`;

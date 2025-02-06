@@ -2,9 +2,9 @@
 
 ## Installation prerequisites
 
-- Database: `MariaDB v10.4.32`
+- Database: `MariaDB v10.4.32`;
 
-- PHP: `v8.2.12`
+- PHP: `v8.2.12`;
 
 ## Installation
 
@@ -16,6 +16,14 @@
 
 ## Scripts
 
-- Install: `composer install`
+Install:
 
-- Test: `composer test`
+```
+composer install
+```
+
+Test:
+
+```
+composer test
+```

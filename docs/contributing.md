@@ -17,7 +17,11 @@ Bugfix: Lint errors
 Types:
 
 - Add;
+
 - Remove;
+
 - Update;
+
 - Refactor;
+
 - Bugfix;

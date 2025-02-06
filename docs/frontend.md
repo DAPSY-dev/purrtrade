@@ -2,26 +2,56 @@
 
 ## Installation prerequisites
 
-- Node.js: `v20.18.0`
+- Node.js: `v20.18.0`;
 
 ## Installation
+
+- Create `/frontend/.env` from `/frontend/.env.example`;
 
 - Install dependencies;
 
 ## Scripts
 
-- Install: `npm install`
+Install:
 
-- Start dev: `npm run dev`
+```
+npm install
+```
 
-- Test: `npm run test`
+Start dev:
 
-- Build: `npm run build`
+```
+npm run dev
+```
 
-- Lint: `npm run lint`
+Test:
 
-- Preview: `npm run preview`
+```
+npm run test
+```
 
-- Favicon check: `npm run faviconCheck`
+Build:
 
-  - Start dev or build and preview before running favicon check
+```
+npm run build
+```
+
+Lint:
+
+```
+npm run lint
+```
+
+Preview:
+
+```
+npm run preview
+```
+
+Favicon check:
+
+- Start dev or build and preview before running favicon check;
+
+```
+npm run faviconCheck
+```
