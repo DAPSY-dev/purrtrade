@@ -13,16 +13,20 @@ export type StringsAction =
 export function fetchStrings() {
   return function (dispatch: AppDispatch) {
     const controller = new AbortController();
-    const signal = controller.signal;
 
     dispatch({ type: FETCH_STRINGS_REQUEST });
 
-    fetch(API_ENDPOINTS.strings, { signal })
+    fetch(API_ENDPOINTS.strings, {
+      signal: controller.signal,
+      headers: {
+        "api-key": import.meta.env.VITE_API_KEY,
+      },
+    })
       .then((response) => response.json())
       .then((data) => {
         dispatch({
           type: FETCH_STRINGS_SUCCESS,
-          payload: data,
+          payload: data.strings,
         });
       })
       .catch((error) => {
