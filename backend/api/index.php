@@ -1,8 +1,8 @@
 <?php
 // require_once __DIR__ . "/../vendor/autoload.php";
-require_once __DIR__ . "/Config.php";
-// require_once __DIR__ . "/Strings.php";
-require_once __DIR__ . "/Router.php";
+require_once __DIR__ . "/../config/Config.php";
+// require_once __DIR__ . "/../core/Strings.php";
+require_once __DIR__ . "/../core/Router.php";
 require_once __DIR__ . "/controllers/StringsController.php";
 
 // use \Dotenv\Dotenv;

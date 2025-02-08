@@ -1,7 +1,7 @@
 <?php
 namespace App\StringsController;
 
-require_once __DIR__ . "/../Strings.php";
+require_once __DIR__ . "/../../core/Strings.php";
 
 use const App\Strings\TEXTS;
 

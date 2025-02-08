@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . "/../api/Config.php";
-require_once __DIR__ . "/../api/Router.php";
+require_once __DIR__ . "/../config/Config.php";
+require_once __DIR__ . "/../core/Router.php";
 
 use PHPUnit\Framework\TestCase;
 use App\Router\Router;
