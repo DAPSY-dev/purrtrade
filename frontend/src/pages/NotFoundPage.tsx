@@ -1,22 +1,12 @@
-import { useSelector } from "react-redux";
 import SEO from "@/components/SEO";
 import Box from "@/components/Box";
 import Button from "@/components/Button";
-import { RootState } from "@/store/reducers";
+import { useStrings } from "@/hooks/useStrings";
 
 function NotFoundPage() {
-  const {
-    strings,
-    loading: stringsLoading,
-    error: stringsError,
-  } = useSelector((state: RootState) => state.strings);
+  const { strings } = useStrings();
 
-  if (stringsLoading) {
-    return null;
-  }
-
-  if (stringsError) {
-    console.error(stringsError);
+  if (strings === null) {
     return null;
   }
 
