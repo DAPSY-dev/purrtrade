@@ -1,4 +1,5 @@
 import { AppDispatch, StringMap } from "@/store/store";
+import { apiRequest } from "@/utils/helpers";
 import { API_ENDPOINTS } from "@/config/api-config";
 
 export const FETCH_STRINGS_REQUEST = "FETCH_STRINGS_REQUEST";
@@ -16,13 +17,9 @@ export function fetchStrings() {
 
     dispatch({ type: FETCH_STRINGS_REQUEST });
 
-    fetch(API_ENDPOINTS.strings, {
+    apiRequest<{ strings: StringMap }>(API_ENDPOINTS.strings, {
       signal: controller.signal,
-      headers: {
-        "api-key": import.meta.env.VITE_API_KEY,
-      },
     })
-      .then((response) => response.json())
       .then((data) => {
         dispatch({
           type: FETCH_STRINGS_SUCCESS,
