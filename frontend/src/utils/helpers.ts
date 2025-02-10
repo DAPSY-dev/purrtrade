@@ -1,3 +1,5 @@
+import ky, { Options } from "ky";
+
 export function classNames(
   classList: (string | null | undefined | false)[]
 ): string {
@@ -6,20 +8,15 @@ export function classNames(
 
 export async function apiRequest<T>(
   url: string,
-  options: RequestInit = {}
+  options: Options = {}
 ): Promise<T> {
-  const response = await fetch(url, {
+  return ky(url, {
+    retry: 3,
     ...options,
     headers: {
       "Content-Type": "application/json",
       "api-key": import.meta.env.VITE_API_KEY,
       ...options.headers,
     },
-  });
-
-  if (!response.ok) {
-    throw new Error(`Error ${response.status}: ${response.statusText}`);
-  }
-
-  return response.json();
+  }).json<T>();
 }
