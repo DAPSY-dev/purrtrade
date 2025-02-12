@@ -1,5 +1,5 @@
 import { AppDispatch, StringMap } from "@/store/store";
-import { apiRequest } from "@/utils/helpers";
+import { apiRequest, createAbortError } from "@/utils/helpers";
 import { API_ENDPOINTS } from "@/config/api-config";
 
 export const FETCH_STRINGS_REQUEST = "FETCH_STRINGS_REQUEST";
@@ -27,7 +27,11 @@ export function fetchStrings() {
         });
       })
       .catch((error) => {
-        if (error.name !== "AbortError") {
+        if (error.name === "AbortError") {
+          if (process.env.NODE_ENV === "development") {
+            console.error(error.message);
+          }
+        } else {
           dispatch({
             type: FETCH_STRINGS_FAILURE,
             error: error.message,
@@ -37,7 +41,7 @@ export function fetchStrings() {
 
     return {
       abort() {
-        controller.abort();
+        controller.abort(createAbortError("Request aborted in 'fetchStrings'"));
       },
     };
   };
