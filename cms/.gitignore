@@ -1,20 +1,7 @@
-*~
-*.diff
-*.patch
-.DS_Store
-.project
-.settings
-.fleet
-.idea
-*.sublime-workspace
-*.sublime-project
-.vscode
-.zed
+# Environment
 .env
-composer.lock
-composer.phar
-package-lock.json
-bun.lockb
+
+# Cockpit CMS
 /.spaces/
 /lib/**/.github/*
 /lib/**/bin/*
@@ -31,12 +18,16 @@ bun.lockb
 /lib/**/\.travis.yml
 /storage/*.*
 /storage/*/*
-/config/*
 /tests/*
+
+# Composer
+composer.phar
+
+# npm
 /node_modules
 npm-debug.log
-yarn-error.log
-addons/
+
+# Git
 !.gitignore
 !.gitkeep
 !/storage/*/index.html

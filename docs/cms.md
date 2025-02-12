@@ -2,16 +2,6 @@
 
 Using [Cockpit](https://getcockpit.com/documentation/core/quickstart/requirements) headless content platform.
 
-## Config example
+## Installation
 
-`/cms/config/config.php`:
-
-```
-<?php
-
-return [
-  'cors' => [
-    'Access-Control-Allow-Origin' => 'http://localhost:5173',
-  ],
-];
-```
+- Create `/cms/.env` from `/cms/.env.example`;

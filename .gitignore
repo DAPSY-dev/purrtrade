@@ -1,5 +1,11 @@
+# Temporary files
+*~
+*.diff
+*.patch
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
+.fleet
 .DS_Store
