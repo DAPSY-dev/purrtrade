@@ -13,22 +13,14 @@ export function createAbortError(message = "Request aborted") {
   };
 }
 
-export async function apiRequest<T>(
-  url: string,
-  options: Options = {}
-): Promise<T> {
-  // eslint-disable-next-line no-useless-catch
-  try {
-    return await ky(url, {
-      retry: 3,
-      ...options,
-      headers: {
-        "Content-Type": "application/json",
-        "api-key": import.meta.env.VITE_API_KEY,
-        ...options.headers,
-      },
-    }).json<T>();
-  } catch (error) {
-    throw error;
-  }
+export function apiRequest<T>(url: string, options: Options = {}): Promise<T> {
+  return ky(url, {
+    retry: 3,
+    ...options,
+    headers: {
+      "Content-Type": "application/json",
+      "api-key": import.meta.env.VITE_API_KEY,
+      ...options.headers,
+    },
+  }).json<T>();
 }

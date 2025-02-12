@@ -10,8 +10,7 @@ import { thunk, ThunkDispatch } from "redux-thunk";
 import rootReducer, { RootState } from "@/store/reducers";
 
 const composeEnhancers =
-  (process.env.NODE_ENV === "development" &&
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+  (import.meta.env.DEV && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
   compose;
 
 const store = createStore(

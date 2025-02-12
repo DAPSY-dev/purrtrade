@@ -28,7 +28,7 @@ export function fetchStrings() {
       })
       .catch((error) => {
         if (error.name === "AbortError") {
-          if (process.env.NODE_ENV === "development") {
+          if (import.meta.env.DEV) {
             console.error(error.message);
           }
         } else {
