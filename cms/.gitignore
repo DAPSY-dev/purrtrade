@@ -21,6 +21,7 @@
 /tests/*
 
 # Composer
+composer.lock
 composer.phar
 
 # npm
