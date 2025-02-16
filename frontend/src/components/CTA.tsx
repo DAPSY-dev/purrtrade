@@ -27,7 +27,7 @@ function CTA({
       ? "inline-block px-6 py-3 bg-gray-700 rounded-md text-base text-white text-center transition-colors hover:bg-gray-600"
       : null,
     variant === "link"
-      ? "rounded-xs ring-6 ring-transparent text-gray-700 underline transition-[background-color,box-shadow,color] hover:bg-gray-200 hover:ring-gray-200"
+      ? "rounded-xs ring-6 ring-transparent text-gray-700 underline transition-[background-color,box-shadow] hover:bg-gray-200 hover:ring-gray-200"
       : null,
     className,
   ]);
