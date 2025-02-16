@@ -1,6 +1,6 @@
 import SEO from "@/components/SEO";
 // import Box from "@/components/Box";
-// import Button from "@/components/Button";
+// import CTA from "@/components/CTA";
 import { useStrings } from "@/hooks/useStrings";
 
 function RegisterPage() {

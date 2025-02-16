@@ -1,7 +1,7 @@
 import { Component, ReactNode, ErrorInfo } from "react";
 import { connect } from "react-redux";
 import Logo from "@/components/Logo";
-import Button from "@/components/Button";
+import CTA from "@/components/CTA";
 import Copyright from "@/components/Copyright";
 import { StringMap } from "@/store/store";
 import { RootState } from "@/store/reducers";
@@ -59,9 +59,9 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
             {strings["PLEASE_TRY_AGAIN_LATER"]}
           </p>
 
-          <Button as="anchor" href="/" className="mt-4">
+          <CTA as="anchor" href="/" className="mt-4">
             {strings["GO_BACK_HOME"]}
-          </Button>
+          </CTA>
 
           <Copyright className="mt-12" />
         </div>

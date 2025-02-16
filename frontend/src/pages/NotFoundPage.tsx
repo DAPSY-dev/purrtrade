@@ -1,6 +1,6 @@
 import SEO from "@/components/SEO";
 import Box from "@/components/Box";
-import Button from "@/components/Button";
+import CTA from "@/components/CTA";
 import { useStrings } from "@/hooks/useStrings";
 
 function NotFoundPage() {
@@ -27,9 +27,9 @@ function NotFoundPage() {
           {strings["PAGE_MIGHT_BE_MOVED_OR_DELETED"]}
         </p>
 
-        <Button as="router-link" to="/" className="mt-4">
+        <CTA as="router-link" to="/" className="mt-4">
           {strings["GO_BACK_HOME"]}
-        </Button>
+        </CTA>
       </Box>
     </>
   );

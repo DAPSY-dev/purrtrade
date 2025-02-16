@@ -1,6 +1,6 @@
 import SEO from "@/components/SEO";
 import Box from "@/components/Box";
-import Button from "@/components/Button";
+import CTA from "@/components/CTA";
 import { useStrings } from "@/hooks/useStrings";
 
 function HomePage() {
@@ -23,9 +23,9 @@ function HomePage() {
         </Box>
 
         <div className="pt-4">
-          <Button as="router-link" to="/x">
+          <CTA as="router-link" variant="link" to="/x">
             Go to /x
-          </Button>
+          </CTA>
         </div>
       </div>
     </>

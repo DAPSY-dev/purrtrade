@@ -1,4 +1,4 @@
-import { NavLink } from "react-router";
+import CTA from "@/components/CTA";
 import { classNames } from "@/utils/helpers";
 
 type MainNavProps = {
@@ -13,8 +13,12 @@ function MainNav({ className }: MainNavProps) {
 
   return (
     <nav className={classes}>
-      <NavLink to="/login">Login</NavLink>
-      <NavLink to="/register">Register</NavLink>
+      <CTA as="router-nav-link" variant="link" to="/login">
+        Login
+      </CTA>
+      <CTA as="router-nav-link" variant="link" to="/register">
+        Register
+      </CTA>
     </nav>
   );
 }

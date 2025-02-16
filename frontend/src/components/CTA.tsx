@@ -2,26 +2,33 @@ import { ReactNode, ButtonHTMLAttributes, AnchorHTMLAttributes } from "react";
 import { Link, NavLink, LinkProps, NavLinkProps } from "react-router";
 import { classNames } from "@/utils/helpers";
 
-type ButtonProps = (
+type CTAProps = (
   | ButtonHTMLAttributes<HTMLButtonElement>
   | AnchorHTMLAttributes<HTMLAnchorElement>
   | LinkProps
 ) & {
   as?: "button" | "anchor" | "router-link" | "router-nav-link";
+  variant?: "button" | "link";
   type?: "button" | "submit" | "reset";
   className?: string;
   children?: ReactNode;
 };
 
-function Button({
+function CTA({
   as = "button",
+  variant = "button",
   type = "button",
   className,
   children,
   ...rest
-}: ButtonProps) {
+}: CTAProps) {
   const classes = classNames([
-    "inline-block px-6 py-3 bg-gray-700 rounded-full text-white text-center transition-colors hover:bg-gray-600",
+    variant === "button"
+      ? "inline-block px-6 py-3 bg-gray-700 rounded-full text-base text-white text-center transition-colors hover:bg-gray-600"
+      : null,
+    variant === "link"
+      ? "text-gray-700 underline transition-[text-decoration-color] hover:decoration-transparent"
+      : null,
     className,
   ]);
 
@@ -67,4 +74,4 @@ function Button({
   }
 }
 
-export default Button;
+export default CTA;
