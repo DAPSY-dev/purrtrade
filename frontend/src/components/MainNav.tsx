@@ -1,4 +1,5 @@
 import CTA from "@/components/CTA";
+import { useStrings } from "@/hooks/useStrings";
 import { classNames } from "@/utils/helpers";
 
 type MainNavProps = {
@@ -6,6 +7,12 @@ type MainNavProps = {
 };
 
 function MainNav({ className }: MainNavProps) {
+  const { strings } = useStrings();
+
+  if (strings === null) {
+    return null;
+  }
+
   const classes = classNames([
     "flex flex-wrap items-center justify-between gap-4",
     className,
@@ -14,10 +21,10 @@ function MainNav({ className }: MainNavProps) {
   return (
     <nav className={classes}>
       <CTA as="router-nav-link" variant="link" to="/login">
-        Login
+        {strings["LOGIN"]}
       </CTA>
       <CTA as="router-nav-link" variant="link" to="/register">
-        Register
+        {strings["REGISTER"]}
       </CTA>
     </nav>
   );
