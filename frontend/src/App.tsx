@@ -9,6 +9,8 @@ import { fetchStrings } from "@/store/actions/strings-actions";
 
 const MainLayout = lazy(() => import("@/pages/layout/MainLayout"));
 const HomePage = lazy(() => import("@/pages/HomePage"));
+const LoginPage = lazy(() => import("@/pages/LoginPage"));
+const RegisterPage = lazy(() => import("@/pages/RegisterPage"));
 const NotFoundPage = lazy(() => import("@/pages/NotFoundPage"));
 
 function App() {
@@ -32,6 +34,10 @@ function App() {
             <Routes>
               <Route element={<MainLayout />}>
                 <Route index element={<HomePage />} />
+
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/register" element={<RegisterPage />} />
+
                 <Route path="*" element={<NotFoundPage />} />
               </Route>
             </Routes>

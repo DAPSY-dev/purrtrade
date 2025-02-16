@@ -38,6 +38,20 @@ describe("Button component", () => {
     expect(routerLink).toHaveAttribute("href", "/home");
   });
 
+  test('renders a router-nav-link element when "as" prop is "router-nav-link"', () => {
+    render(
+      <MemoryRouter>
+        <Button as="router-nav-link" to="/home">
+          Home
+        </Button>
+      </MemoryRouter>
+    );
+    const routerNavLink = screen.getByRole("link");
+    expect(routerNavLink).toBeInTheDocument();
+    expect(routerNavLink).toHaveTextContent("Home");
+    expect(routerNavLink).toHaveAttribute("href", "/home");
+  });
+
   test("applies custom className", () => {
     render(<Button className="custom-class">Click me</Button>);
     const button = screen.getByRole("button");

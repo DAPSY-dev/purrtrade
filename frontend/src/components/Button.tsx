@@ -1,5 +1,5 @@
 import { ReactNode, ButtonHTMLAttributes, AnchorHTMLAttributes } from "react";
-import { Link, LinkProps } from "react-router";
+import { Link, NavLink, LinkProps, NavLinkProps } from "react-router";
 import { classNames } from "@/utils/helpers";
 
 type ButtonProps = (
@@ -7,7 +7,7 @@ type ButtonProps = (
   | AnchorHTMLAttributes<HTMLAnchorElement>
   | LinkProps
 ) & {
-  as?: "button" | "anchor" | "router-link";
+  as?: "button" | "anchor" | "router-link" | "router-nav-link";
   type?: "button" | "submit" | "reset";
   className?: string;
   children?: ReactNode;
@@ -52,6 +52,13 @@ function Button({
         <Link className={classes} {...(rest as LinkProps)}>
           {children}
         </Link>
+      );
+
+    case "router-nav-link":
+      return (
+        <NavLink className={classes} {...(rest as NavLinkProps)}>
+          {children}
+        </NavLink>
       );
 
     default:
