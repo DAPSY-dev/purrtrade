@@ -24,10 +24,10 @@ function CTA({
 }: CTAProps) {
   const classes = classNames([
     variant === "button"
-      ? "inline-block px-6 py-3 bg-gray-700 rounded-full text-base text-white text-center transition-colors hover:bg-gray-600"
+      ? "inline-block px-6 py-3 bg-gray-700 rounded-md text-base text-white text-center transition-colors hover:bg-gray-600"
       : null,
     variant === "link"
-      ? "text-gray-700 underline transition-[text-decoration-color] hover:decoration-transparent"
+      ? "rounded-xs ring-6 ring-transparent text-gray-700 underline transition-[background-color,box-shadow,color] hover:bg-gray-200 hover:ring-gray-200"
       : null,
     className,
   ]);
