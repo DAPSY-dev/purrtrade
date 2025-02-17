@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import CTA from "@/components/CTA";
 import { classNames } from "@/utils/helpers";
 
 type LogoProps = {
@@ -9,7 +9,7 @@ function Logo({ className }: LogoProps) {
   const classes = classNames(["block max-w-40", className]);
 
   return (
-    <Link to="/" className={classes}>
+    <CTA as="router-link" variant="none" to="/" className={classes}>
       <picture className="block max-w-full">
         <img
           src="/images/logo/logo.svg"
@@ -18,7 +18,7 @@ function Logo({ className }: LogoProps) {
           height="64"
         />
       </picture>
-    </Link>
+    </CTA>
   );
 }
 

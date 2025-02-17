@@ -8,7 +8,7 @@ type CTAProps = (
   | LinkProps
 ) & {
   as?: "button" | "anchor" | "router-link" | "router-nav-link";
-  variant?: "button" | "link";
+  variant?: "button" | "link" | "none";
   type?: "button" | "submit" | "reset";
   className?: string;
   children?: ReactNode;
@@ -23,12 +23,11 @@ function CTA({
   ...rest
 }: CTAProps) {
   const classes = classNames([
-    variant === "button"
-      ? "inline-block px-6 py-3 bg-gray-700 rounded-md text-base text-white text-center transition-colors hover:bg-gray-600"
-      : null,
-    variant === "link"
-      ? "rounded-xs ring-6 ring-transparent text-gray-700 underline transition-[background-color,box-shadow] hover:bg-gray-200 hover:ring-gray-200"
-      : null,
+    variant === "button" &&
+      "inline-block px-6 py-3 bg-gray-700 rounded-md text-base text-white text-center transition-colors hover:bg-gray-600",
+    variant === "link" &&
+      "rounded-xs ring-6 ring-transparent text-gray-700 underline transition-[background-color,box-shadow] hover:bg-gray-200 hover:ring-gray-200",
+    variant === "none" && null,
     className,
   ]);
 
