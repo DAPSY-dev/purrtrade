@@ -1,4 +1,4 @@
-import { describe, test, expect } from "vitest";
+import { describe, test, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { ReactNode } from "react";
 import { legacy_createStore as createStore } from "redux";
@@ -31,6 +31,9 @@ describe("ErrorBoundary component", () => {
   }
 
   test("should render fallback UI when an error occurs", () => {
+    const consoleErrorMock = vi
+      .spyOn(console, "error")
+      .mockImplementation(() => {});
     function ProblemComponent() {
       throw new Error("Test error");
       return <></>;
@@ -41,6 +44,7 @@ describe("ErrorBoundary component", () => {
       </ErrorBoundary>
     );
     expect(screen.getByText("Oops!")).toBeInTheDocument();
+    consoleErrorMock.mockRestore();
   });
 
   test("should render children if no error occurs", () => {
