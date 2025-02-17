@@ -1,5 +1,6 @@
 import SEO from "@/components/SEO";
 // import Box from "@/components/Box";
+import Heading from "@/components/Heading";
 // import CTA from "@/components/CTA";
 import { useStrings } from "@/hooks/useStrings";
 
@@ -14,7 +15,7 @@ function RegisterPage() {
     <>
       <SEO title={strings["REGISTER"]} />
 
-      <h1>{strings["REGISTER"]}</h1>
+      <Heading as="h1">{strings["REGISTER"]}</Heading>
     </>
   );
 }

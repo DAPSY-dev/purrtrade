@@ -1,5 +1,6 @@
 import SEO from "@/components/SEO";
 import Box from "@/components/Box";
+import Heading from "@/components/Heading";
 import CTA from "@/components/CTA";
 import { useStrings } from "@/hooks/useStrings";
 
@@ -15,9 +16,9 @@ function HomePage() {
       <SEO title={strings["HOME"]} />
 
       <div>
-        <h1>{strings["HOME"]}</h1>
+        <Heading as="h1">{strings["HOME"]}</Heading>
 
-        <Box className="grid sm:grid-cols-2 gap-4 mt-4">
+        <Box className="grid gap-4 mt-4 sm:grid-cols-2">
           <div className="h-15 bg-gray-700 rounded-md"></div>
           <div className="h-15 bg-gray-700 rounded-md"></div>
         </Box>

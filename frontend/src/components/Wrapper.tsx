@@ -3,7 +3,7 @@ import { classNames } from "@/utils/helpers";
 
 type WrapperProps = {
   className?: string;
-  children: ReactNode;
+  children?: ReactNode;
 };
 
 function Wrapper({ className, children }: WrapperProps) {

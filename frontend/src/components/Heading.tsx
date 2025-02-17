@@ -8,7 +8,7 @@ type HeadingTag = (typeof HEADING_TAGS)[number];
 type HeadingProps = {
   as?: HeadingTag;
   className?: string;
-  children: ReactNode;
+  children?: ReactNode;
 };
 
 function Heading({ as = "h1", className, children, ...rest }: HeadingProps) {

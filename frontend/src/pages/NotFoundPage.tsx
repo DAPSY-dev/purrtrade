@@ -1,5 +1,6 @@
 import SEO from "@/components/SEO";
 import Box from "@/components/Box";
+import Heading from "@/components/Heading";
 import CTA from "@/components/CTA";
 import { useStrings } from "@/hooks/useStrings";
 
@@ -15,9 +16,9 @@ function NotFoundPage() {
       <SEO title={strings["TITLE_404"]} />
 
       <Box className="grid place-items-center gap-2 py-12">
-        <h1 className="font-bold text-6xl text-gray-700 text-center">
+        <Heading as="h1" className="text-6xl text-center md:text-6xl">
           {strings["TITLE_404"]}
-        </h1>
+        </Heading>
 
         <p className="text-2xl text-gray-700 text-center">
           {strings["OOPS"]} {strings["PAGE_NOT_FOUND"]}

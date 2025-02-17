@@ -15,7 +15,7 @@ function LoginPage() {
     <>
       <SEO title={strings["LOGIN"]} />
 
-      <Box className="grid sm:grid-cols-2 gap-4 mt-4">
+      <Box>
         <Heading as="h1">{strings["LOGIN"]}</Heading>
       </Box>
     </>
