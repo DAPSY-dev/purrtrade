@@ -1,6 +1,7 @@
 import { Component, ReactNode, ErrorInfo } from "react";
 import { connect } from "react-redux";
 import Logo from "@/components/Logo";
+import Heading from "@/components/Heading";
 import CTA from "@/components/CTA";
 import Copyright from "@/components/Copyright";
 import { StringMap } from "@/store/store";
@@ -50,9 +51,9 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
         <div className="flex flex-col items-center justify-start gap-2 py-12 px-4 min-h-dvh bg-gray-100">
           <Logo className="mb-12" />
 
-          <h1 className="font-bold text-6xl text-gray-700 text-center">
+          <Heading as="h1" className="text-6xl text-center md:text-6xl">
             {strings["OOPS"]}
-          </h1>
+          </Heading>
 
           <p className="text-lg text-gray-700 text-center">
             {strings["SOMETHING_WENT_WRONG"]}{" "}
