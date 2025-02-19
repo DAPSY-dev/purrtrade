@@ -1,7 +1,9 @@
+import { FormEvent } from "react";
 import SEO from "@/components/SEO";
 import Box from "@/components/Box";
 import Heading from "@/components/Heading";
-// import CTA from "@/components/CTA";
+import Input from "@/components/Input";
+import CTA from "@/components/CTA";
 import { useStrings } from "@/hooks/useStrings";
 
 function LoginPage() {
@@ -11,12 +13,25 @@ function LoginPage() {
     return null;
   }
 
+  function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+  }
+
   return (
     <>
       <SEO title={strings["LOGIN"]} />
 
-      <Box>
-        <Heading as="h1">{strings["LOGIN"]}</Heading>
+      <Box className="grid gap-6">
+        <Heading>{strings["LOGIN"]}</Heading>
+
+        <form onClick={handleSubmit} className="grid gap-4">
+          <div className="grid gap-4 md:grid-cols-2">
+            <Input type="email" label={strings["EMAIL"]} />
+            <Input type="password" label={strings["PASSWORD"]} />
+          </div>
+
+          <CTA type="submit">{strings["LOGIN"]}</CTA>
+        </form>
       </Box>
     </>
   );

@@ -51,7 +51,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
         <div className="flex flex-col items-center justify-start gap-2 py-12 px-4 min-h-dvh bg-gray-100">
           <Logo className="mb-12" />
 
-          <Heading as="h1" className="text-6xl text-center md:text-6xl">
+          <Heading className="text-6xl text-center md:text-6xl">
             {strings["OOPS"]}
           </Heading>
 

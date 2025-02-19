@@ -15,8 +15,8 @@ function NotFoundPage() {
     <>
       <SEO title={strings["TITLE_404"]} />
 
-      <Box className="grid place-items-center gap-2 py-12">
-        <Heading as="h1" className="text-6xl text-center md:text-6xl">
+      <Box className="grid place-items-center gap-2 py-12 md:py-12">
+        <Heading className="text-6xl text-center md:text-6xl">
           {strings["TITLE_404"]}
         </Heading>
 
