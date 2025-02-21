@@ -1,1 +1,14 @@
 @import "tailwindcss";
+
+@theme {
+  /* Overriding the default theme */
+
+  --default-transition-duration: 300ms;
+
+  /* Extending the default theme */
+
+  --color-primary: var(--color-indigo-500);
+  --color-secondary: var(--color-fuchsia-500);
+
+  --color-app-background: var(--color-gray-100);
+}

@@ -29,7 +29,7 @@ function Input({ label, type = "text", id, className, ...rest }: InputProps) {
   return (
     <div className={classes}>
       {label ? (
-        <label htmlFor={inputId} className="self-start text-base text-gray-700">
+        <label htmlFor={inputId} className="self-start text-base">
           {label}
         </label>
       ) : null}
@@ -37,7 +37,7 @@ function Input({ label, type = "text", id, className, ...rest }: InputProps) {
       <input
         type={type}
         id={inputId}
-        className="block p-3 w-full bg-white border border-gray-700 rounded-md text-gray-700 transition-[background-color] hover:bg-gray-100 focus:bg-gray-100"
+        className="block p-3 w-full bg-white border border-primary rounded-md text-base transition hover:border-secondary focus:border-secondary"
         {...(rest as InputHTMLAttributes<HTMLInputElement>)}
       />
     </div>

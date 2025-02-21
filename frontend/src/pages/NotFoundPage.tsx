@@ -20,11 +20,11 @@ function NotFoundPage() {
           {strings["TITLE_404"]}
         </Heading>
 
-        <p className="text-2xl text-gray-700 text-center">
+        <p className="text-2xl text-center">
           {strings["OOPS"]} {strings["PAGE_NOT_FOUND"]}
         </p>
 
-        <p className="text-lg text-gray-700 text-center">
+        <p className="text-lg text-center">
           {strings["PAGE_MIGHT_BE_MOVED_OR_DELETED"]}
         </p>
 

@@ -8,7 +8,7 @@ type LoaderProps = {
 function Loader({ fullPage = false, className }: LoaderProps) {
   const classes = classNames([
     fullPage ? "fixed" : "absolute",
-    "inset-0 z-10 flex items-center justify-center p-4 bg-gray-100",
+    "inset-0 z-10 flex items-center justify-center p-4 bg-app-background",
     className,
   ]);
 

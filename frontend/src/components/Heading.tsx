@@ -18,10 +18,7 @@ function Heading({ as = "h1", className, children, ...rest }: HeadingProps) {
   }
 
   const Tag = as;
-  const classes = classNames([
-    "font-bold text-2xl text-gray-700 md:text-4xl",
-    className,
-  ]);
+  const classes = classNames(["font-bold text-2xl md:text-4xl", className]);
 
   return (
     <Tag className={classes} {...rest}>
