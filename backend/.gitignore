@@ -1,0 +1,10 @@
+# Environment
+.env
+
+# Build and dependencies
+vendor
+*.local
+
+# Logs
+logs
+*.log

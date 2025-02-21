@@ -23,7 +23,7 @@ export function fetchStrings() {
       .then((data) => {
         dispatch({
           type: FETCH_STRINGS_SUCCESS,
-          payload: data.strings,
+          payload: data,
         });
       })
       .catch((error) => {

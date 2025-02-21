@@ -1,10 +1,10 @@
 # Deploy
 
-- Deploy the CMS;
+- Create the DB;
 
-- Create `/cms/.env` from `/cms/.env.example`;
+- Deploy the backend;
 
-- Configure the CMS accounts;
+- Create `/backend/.env` from `/backend/.env.example`;
 
 - Build the frontend;
 

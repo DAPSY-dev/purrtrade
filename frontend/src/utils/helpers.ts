@@ -19,7 +19,6 @@ export function apiRequest<T>(url: string, options: Options = {}): Promise<T> {
     ...options,
     headers: {
       "Content-Type": "application/json",
-      "api-key": import.meta.env.VITE_API_KEY,
       ...options.headers,
     },
   }).json<T>();
