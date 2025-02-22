@@ -31,7 +31,6 @@ function SEO({ title, description, keywords, image, url }: SEOProps) {
 
       <meta name="description" content={metaDescription} />
       <meta name="keywords" content={metaKeywords} />
-      <meta name="apple-mobile-web-app-title" content={titleText} />
       <meta property="og:title" content={titleText} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:image" content={metaImage} />

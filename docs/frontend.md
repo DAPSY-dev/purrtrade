@@ -55,3 +55,7 @@ Favicon check:
 ```
 npm run faviconCheck
 ```
+
+## Tools
+
+- Favicon (Web App Manifest) generator: <a href="https://realfavicongenerator.net" target="_blank" rel="noopener noreferrer">RealFaviconGenerator</a>;
