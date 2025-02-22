@@ -24,13 +24,20 @@ function LoginPage() {
       <Box className="grid gap-6">
         <Heading>{strings["LOGIN"]}</Heading>
 
-        <form onClick={handleSubmit} className="grid gap-4">
+        <form
+          onClick={handleSubmit}
+          className="grid gap-4 mx-auto w-full max-w-3xl"
+        >
           <div className="grid gap-4 md:grid-cols-2">
             <Input type="email" label={strings["EMAIL"]} />
             <Input type="password" label={strings["PASSWORD"]} />
           </div>
 
-          <CTA type="submit">{strings["LOGIN"]}</CTA>
+          <div className="text-center">
+            <CTA type="submit" className="w-full md:w-auto md:min-w-3xs">
+              {strings["LOGIN"]}
+            </CTA>
+          </div>
         </form>
       </Box>
     </>
