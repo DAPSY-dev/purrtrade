@@ -2,8 +2,6 @@
 namespace App\Strings;
 
 define("App\Strings\TEXTS", [
-  "INVALID_JSON" => "Invalid JSON",
-  "ENDPOINT_NOT_FOUND" => "Endpoint not found",
   "GO_BACK_HOME" => "Go back home",
   "TITLE_404" => "404",
   "OOPS" => "Oops!",

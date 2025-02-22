@@ -43,7 +43,7 @@ $router->addRoute("GET", "/strings", function () {
 //   $input = json_decode(file_get_contents("php://input"), true);
 //   if (json_last_error() !== JSON_ERROR_NONE) {
 //     http_response_code(400);
-//     echo json_encode(["error" => TEXTS["INVALID_JSON"]]);
+//     echo json_encode(["error" => "Invalid JSON"]);
 //     exit();
 //   }
 //   echo json_encode(["received" => $input]);

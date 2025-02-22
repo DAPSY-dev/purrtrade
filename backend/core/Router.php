@@ -37,6 +37,6 @@ class Router
     }
 
     http_response_code(404);
-    echo json_encode(["error" => TEXTS["ENDPOINT_NOT_FOUND"]]);
+    echo json_encode(["error" => "Endpoint not found"]);
   }
 }
