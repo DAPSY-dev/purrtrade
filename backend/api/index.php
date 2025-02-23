@@ -1,15 +1,15 @@
 <?php
-// require_once __DIR__ . "/../vendor/autoload.php";
+require_once __DIR__ . "/../vendor/autoload.php";
 require_once __DIR__ . "/../config/Config.php";
-// require_once __DIR__ . "/../core/Strings.php";
 require_once __DIR__ . "/../core/Router.php";
+require_once __DIR__ . "/../core/Database.php";
 require_once __DIR__ . "/controllers/StringsController.php";
 
-// use \Dotenv\Dotenv;
+use \Dotenv\Dotenv;
 use App\Router\Router;
+use App\Database\Database;
 use App\StringsController\StringsController;
 use const App\Config\ENDPOINTS;
-// use const App\Strings\TEXTS;
 
 header("Access-Control-Allow-Origin: " . ENDPOINTS["FRONTEND_URL"]);
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
@@ -21,19 +21,24 @@ if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
   exit();
 }
 
-// $dotenv = Dotenv::createImmutable(__DIR__ . "/../");
-// $dotenv->load();
+$dotenv = Dotenv::createImmutable(__DIR__ . "/../");
+$dotenv->load();
 
 $router = new Router(ENDPOINTS["API_BASE_URL"]);
+
+$db = new Database(
+  $_ENV["DB_HOST"],
+  $_ENV["DB_PORT"],
+  $_ENV["DB_NAME"],
+  $_ENV["DB_CHARSET"],
+  $_ENV["DB_USERNAME"],
+  $_ENV["DB_PASSWORD"]
+);
 
 $router->addRoute("GET", "/strings", function () {
   $stringsController = new StringsController();
   $stringsController->getStrings();
 });
-
-// $router->addRoute("GET", "/env-test", function () {
-//   echo json_encode(["DB_HOST" => $_ENV["DB_HOST"]]);
-// });
 
 // $router->addRoute("GET", "/data", function () {
 //   echo json_encode(["message" => "Hello from PHP API!"]);
@@ -49,4 +54,23 @@ $router->addRoute("GET", "/strings", function () {
 //   echo json_encode(["received" => $input]);
 // });
 
+// $router->addRoute("GET", "/env-test", function () {
+//   echo json_encode(["DB_HOST" => $_ENV["DB_HOST"]]);
+// });
+
+// $router->addRoute("GET", "/db-test", function () use ($db) {
+//   // $userId = $db->insert("users", [
+//   //   "name" => "John Doe",
+//   //   "email" => "john@example.com"
+//   // ]);
+//   // $user = $db->fetch("SELECT * FROM users WHERE id = ?", [$userId]);
+//   // $users = $db->fetchAll("SELECT * FROM users");
+//   // $db->update("users", ["name" => "Jane Doe"], ["id" => $userId]);
+//   // $db->delete("users", ["id" => $userId]);
+//   $apiKeys = $db->fetchAll("SELECT * FROM api_keys");
+//   echo json_encode(["API_KEYS" => $apiKeys]);
+// });
+
 $router->dispatch();
+
+$db->close();

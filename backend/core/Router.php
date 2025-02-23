@@ -1,10 +1,6 @@
 <?php
 namespace App\Router;
 
-require_once __DIR__ . "/../core/Strings.php";
-
-use const App\Strings\TEXTS;
-
 class Router
 {
   private $apiBaseUrl;
