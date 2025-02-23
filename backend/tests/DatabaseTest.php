@@ -31,7 +31,7 @@ class DatabaseTest extends TestCase
       ['id' => 1, 'name' => 'John Doe'],
       ['id' => 2, 'name' => 'Jane Doe']
     ]);
-    $this->database->method('insert')->willReturn('10'); // lastInsertId returns string!
+    $this->database->method('insert')->willReturn('10');
     $this->database->method('update')->willReturn(true);
     $this->database->method('delete')->willReturn(true);
   }
@@ -63,7 +63,7 @@ class DatabaseTest extends TestCase
 
   public function testInsertReturnsLastInsertId()
   {
-    $this->pdoMock->method('lastInsertId')->willReturn('10'); // ✅ Correct, string
+    $this->pdoMock->method('lastInsertId')->willReturn('10');
     $this->stmtMock->method('execute')->willReturn(true);
 
     $this->assertSame('10', $this->database->insert('users', ['name' => 'John Doe']));
