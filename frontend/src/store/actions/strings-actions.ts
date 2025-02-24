@@ -19,6 +19,9 @@ export function fetchStrings() {
 
     apiRequest<{ strings: StringMap }>(API_ENDPOINTS.strings, {
       signal: controller.signal,
+      searchParams: {
+        lang: "en",
+      },
     })
       .then((data) => {
         dispatch({

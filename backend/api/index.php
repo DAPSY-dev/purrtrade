@@ -35,10 +35,15 @@ $db = new Database(
   $_ENV["DB_PASSWORD"]
 );
 
-$router->addRoute("GET", "/strings", function ($query) {
-  // echo json_encode(["lang" => $query["lang"] ?? null]);
-  $stringsController = new StringsController();
-  $stringsController->getStrings();
+$router->addRoute("GET", "/strings", function ($query) use ($db) {
+  if (!isset($query["lang"]) || empty($query["lang"])) {
+    http_response_code(400);
+    echo json_encode(["error" => "Query parameter 'lang' is required"]);
+    exit();
+  }
+  $lang = $query["lang"];
+  $stringsController = new StringsController($db);
+  $stringsController->getStrings($lang);
 });
 
 // $router->addRoute("GET", "/data", function () {
