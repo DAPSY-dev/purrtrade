@@ -106,4 +106,24 @@ class RouterTest extends TestCase
       $output
     );
   }
+
+  public function testDispatchWithQueryParams()
+  {
+    $this->router->addRoute("GET", "/strings", function ($query) {
+      echo json_encode(["lang" => $query["lang"] ?? null]);
+    });
+
+    $_SERVER["REQUEST_URI"] = ENDPOINTS["API_BASE_URL"] . "/strings?lang=en";
+    $_SERVER["REQUEST_METHOD"] = "GET";
+    $_GET["lang"] = "en";
+
+    ob_start();
+    $this->router->dispatch();
+    $output = ob_get_clean();
+
+    $this->assertJsonStringEqualsJsonString(
+      json_encode(["lang" => "en"]),
+      $output
+    );
+  }
 }

@@ -35,7 +35,8 @@ $db = new Database(
   $_ENV["DB_PASSWORD"]
 );
 
-$router->addRoute("GET", "/strings", function () {
+$router->addRoute("GET", "/strings", function ($query) {
+  // echo json_encode(["lang" => $query["lang"] ?? null]);
   $stringsController = new StringsController();
   $stringsController->getStrings();
 });
