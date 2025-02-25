@@ -15,6 +15,11 @@ class StringsController
   public function getStrings($lang)
   {
     $texts = $this->db->fetch("SELECT * FROM strings WHERE lang = ?", [$lang]);
-    echo $texts["translations"];
+
+    if (!$texts) {
+      return null;
+    }
+
+    return $texts["translations"];
   }
 }

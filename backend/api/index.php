@@ -36,14 +36,24 @@ $db = new Database(
 );
 
 $router->addRoute("GET", "/strings", function ($query) use ($db) {
-  if (!isset($query["lang"]) || empty($query["lang"])) {
+  $lang = $query["lang"] ?? null;
+
+  if (empty($lang)) {
     http_response_code(400);
     echo json_encode(["error" => "Query parameter 'lang' is required"]);
     exit();
   }
-  $lang = $query["lang"];
+
   $stringsController = new StringsController($db);
-  $stringsController->getStrings($lang);
+  $translations = $stringsController->getStrings($lang);
+
+  if (!$translations) {
+    http_response_code(404);
+    echo json_encode(["error" => "No translations found for '$lang'"]);
+    exit();
+  }
+
+  echo $translations;
 });
 
 // $router->addRoute("GET", "/data", function () {

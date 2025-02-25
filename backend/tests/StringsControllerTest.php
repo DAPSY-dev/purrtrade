@@ -7,7 +7,7 @@ use App\Database\Database;
 
 class StringsControllerTest extends TestCase
 {
-  public function testGetStrings()
+  public function testGetStringsWithValidLang()
   {
     $dbMock = $this->createMock(Database::class);
 
@@ -20,10 +20,24 @@ class StringsControllerTest extends TestCase
 
     $controller = new StringsController($dbMock);
 
-    ob_start();
-    $controller->getStrings('en');
-    $output = ob_get_clean();
+    $result = $controller->getStrings('en');
 
-    $this->assertEquals('Hello, World!', $output);
+    $this->assertEquals('Hello, World!', $result);
+  }
+
+  public function testGetStringsWithNoTranslations()
+  {
+    $dbMock = $this->createMock(Database::class);
+
+    $dbMock->expects($this->once())
+      ->method('fetch')
+      ->with("SELECT * FROM strings WHERE lang = ?", ['fr'])
+      ->willReturn(false);
+
+    $controller = new StringsController($dbMock);
+
+    $result = $controller->getStrings('fr');
+
+    $this->assertNull($result);
   }
 }
