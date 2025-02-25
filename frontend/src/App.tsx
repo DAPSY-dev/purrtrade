@@ -4,7 +4,9 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import SEO from "@/components/SEO";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import Loader from "@/components/Loader";
+import { useLanguage } from "@/hooks/useLanguage";
 import { ThunkDispatchType } from "@/store/store";
+// import { setLanguage } from "@/store/actions/language-actions";
 import { fetchStrings } from "@/store/actions/strings-actions";
 
 const MainLayout = lazy(() => import("@/pages/layout/MainLayout"));
@@ -14,15 +16,17 @@ const RegisterPage = lazy(() => import("@/pages/RegisterPage"));
 const NotFoundPage = lazy(() => import("@/pages/NotFoundPage"));
 
 function App() {
+  const lang = useLanguage();
   const dispatch = useDispatch<ThunkDispatchType>();
 
   useEffect(() => {
-    const { abort: abortFetchStrings } = dispatch(fetchStrings());
+    // dispatch(setLanguage("bg"));
+    const { abort: abortFetchStrings } = dispatch(fetchStrings(lang));
 
     return () => {
       abortFetchStrings();
     };
-  }, [dispatch]);
+  }, [lang, dispatch]);
 
   return (
     <>

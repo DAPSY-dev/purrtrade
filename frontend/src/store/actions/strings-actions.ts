@@ -7,11 +7,19 @@ export const FETCH_STRINGS_SUCCESS = "FETCH_STRINGS_SUCCESS";
 export const FETCH_STRINGS_FAILURE = "FETCH_STRINGS_FAILURE";
 
 export type StringsAction =
-  | { type: typeof FETCH_STRINGS_REQUEST }
-  | { type: typeof FETCH_STRINGS_SUCCESS; payload: StringMap }
-  | { type: typeof FETCH_STRINGS_FAILURE; error: string };
+  | {
+      type: typeof FETCH_STRINGS_REQUEST;
+    }
+  | {
+      type: typeof FETCH_STRINGS_SUCCESS;
+      payload: StringMap;
+    }
+  | {
+      type: typeof FETCH_STRINGS_FAILURE;
+      error: string;
+    };
 
-export function fetchStrings() {
+export function fetchStrings(lang: string) {
   return function (dispatch: AppDispatch) {
     const controller = new AbortController();
 
@@ -20,7 +28,7 @@ export function fetchStrings() {
     apiRequest<{ strings: StringMap }>(API_ENDPOINTS.strings, {
       signal: controller.signal,
       searchParams: {
-        lang: "en",
+        lang: lang,
       },
     })
       .then((data) => {
