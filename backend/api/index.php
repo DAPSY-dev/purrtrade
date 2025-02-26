@@ -3,13 +3,13 @@ require_once __DIR__ . "/../vendor/autoload.php";
 require_once __DIR__ . "/../config/Config.php";
 require_once __DIR__ . "/../core/Router.php";
 require_once __DIR__ . "/../core/Database.php";
-require_once __DIR__ . "/controllers/StringsController.php";
+require_once __DIR__ . "/routes/StringsRoutes.php";
 
+use const App\Config\ENDPOINTS;
 use \Dotenv\Dotenv;
 use App\Router\Router;
 use App\Database\Database;
-use App\StringsController\StringsController;
-use const App\Config\ENDPOINTS;
+use App\StringsRoutes\StringsRoutes;
 
 header("Access-Control-Allow-Origin: " . ENDPOINTS["FRONTEND_URL"]);
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
@@ -36,24 +36,8 @@ $db = new Database(
 );
 
 $router->addRoute("GET", "/strings", function ($query) use ($db) {
-  $lang = $query["lang"] ?? null;
-
-  if (empty($lang)) {
-    http_response_code(400);
-    echo json_encode(["error" => "Query parameter 'lang' is required"]);
-    exit();
-  }
-
-  $stringsController = new StringsController($db);
-  $translations = $stringsController->getStrings($lang);
-
-  if (!$translations) {
-    http_response_code(404);
-    echo json_encode(["error" => "No translations found for '$lang'"]);
-    exit();
-  }
-
-  echo $translations;
+  $stringsRoutes = new StringsRoutes($db);
+  echo $stringsRoutes->fetchStrings($query);
 });
 
 // $router->addRoute("GET", "/data", function () {
