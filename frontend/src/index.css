@@ -5,4 +5,23 @@
   --color-secondary: var(--color-fuchsia-500);
 
   --color-app-background: var(--color-gray-100);
+  --color-app-backdrop: --alpha(var(--color-gray-100) / 50%);
+
+  --animate-fade-in: fade-in var(--default-transition-timing-function)
+    var(--default-transition-duration);
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+@layer components {
+  .popup-backdrop::backdrop {
+    @apply bg-app-backdrop;
+  }
 }
