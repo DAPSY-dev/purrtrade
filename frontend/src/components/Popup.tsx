@@ -80,11 +80,11 @@ function Popup({
           <div className="text-end">
             <CTA
               variant="none"
-              className="cursor-pointer"
+              className="cursor-pointer text-black transition hover:text-secondary"
               onClick={handleHide}
               aria-label={strings["CLOSE"]}
             >
-              <XMarkIcon className="size-6 text-black" />
+              <XMarkIcon className="size-6 text-current" />
             </CTA>
           </div>
         ) : null}
