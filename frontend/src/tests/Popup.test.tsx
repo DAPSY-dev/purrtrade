@@ -4,10 +4,10 @@ import userEvent from "@testing-library/user-event";
 import Popup from "@/components/Popup";
 import { useStrings } from "@/hooks/useStrings";
 
-interface ToggleEvent extends Event {
+type ToggleEvent = Event & {
   newState: string;
   oldState: string;
-}
+};
 
 global.HTMLElement.prototype.showPopover = vi.fn();
 global.HTMLElement.prototype.hidePopover = vi.fn();

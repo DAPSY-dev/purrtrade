@@ -5,9 +5,10 @@ import { useStrings } from "@/hooks/useStrings";
 import { classNames } from "@/utils/helpers";
 
 type PopupProps = {
-  variant?: "popup";
   show?: boolean;
   onHide?: () => void;
+  variant?: "none" | "popup";
+  backdrop?: boolean;
   closeButton?: boolean;
   toggleMode?: "auto" | "hint" | "manual";
   className?: string;
@@ -15,9 +16,10 @@ type PopupProps = {
 };
 
 function Popup({
-  variant = "popup",
   show = false,
   onHide = () => {},
+  variant = "none",
+  backdrop = false,
   closeButton = false,
   toggleMode = "auto",
   className,
@@ -67,9 +69,11 @@ function Popup({
   }
 
   const classes = classNames([
+    variant === "none" && "m-auto",
     variant === "popup" &&
       "popup-backdrop m-auto p-4 w-[calc(100%-2rem)] max-w-xl max-h-[calc(100dvh-2rem)] rounded-md bg-white shadow-md transition-discrete transition-[display,opacity] animate-fade-in",
     variant === "popup" && !show && "opacity-0",
+    backdrop && "popup-backdrop",
     className,
   ]);
 
