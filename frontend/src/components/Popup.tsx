@@ -7,7 +7,7 @@ import { classNames } from "@/utils/helpers";
 type PopupProps = {
   show?: boolean;
   onHide?: () => void;
-  variant?: "none" | "popup";
+  variant?: "popup" | "none";
   backdrop?: boolean;
   closeButton?: boolean;
   toggleMode?: "auto" | "hint" | "manual";
@@ -69,10 +69,10 @@ function Popup({
   }
 
   const classes = classNames([
-    variant === "none" && "m-auto",
     variant === "popup" &&
       "popup-backdrop m-auto p-4 w-[calc(100%-2rem)] max-w-xl max-h-[calc(100dvh-2rem)] rounded-md bg-white shadow-md transition-discrete transition-[display,opacity] animate-fade-in",
     variant === "popup" && !show && "opacity-0",
+    variant === "none" && "m-auto",
     backdrop && "popup-backdrop",
     className,
   ]);
@@ -83,7 +83,6 @@ function Popup({
         {closeButton ? (
           <div className="text-end">
             <CTA
-              variant="none"
               className="cursor-pointer text-black transition hover:text-secondary"
               onClick={handleHide}
               aria-label={strings["CLOSE"]}

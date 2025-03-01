@@ -60,7 +60,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
             {strings["PLEASE_TRY_AGAIN_LATER"]}
           </p>
 
-          <CTA as="anchor" href="/" className="mt-4">
+          <CTA as="anchor" variant="button" href="/" className="mt-4">
             {strings["GO_BACK_HOME"]}
           </CTA>
 

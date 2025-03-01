@@ -9,7 +9,7 @@ function Logo({ className }: LogoProps) {
   const classes = classNames(["block max-w-40", className]);
 
   return (
-    <CTA as="router-link" variant="none" to="/" className={classes}>
+    <CTA as="router-link" to="/" className={classes}>
       <picture className="block max-w-full">
         <img
           src="/images/logo/logo.svg"

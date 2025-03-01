@@ -28,7 +28,7 @@ function NotFoundPage() {
           {strings["PAGE_MIGHT_BE_MOVED_OR_DELETED"]}
         </p>
 
-        <CTA as="router-link" to="/" className="mt-4">
+        <CTA as="router-link" variant="button" to="/" className="mt-4">
           {strings["GO_BACK_HOME"]}
         </CTA>
       </Box>

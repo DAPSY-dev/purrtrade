@@ -36,7 +36,11 @@ function RegisterPage() {
           </div>
 
           <div className="text-center">
-            <CTA type="submit" className="w-full md:w-auto md:min-w-3xs">
+            <CTA
+              variant="button"
+              type="submit"
+              className="w-full md:w-auto md:min-w-3xs"
+            >
               {strings["REGISTER"]}
             </CTA>
           </div>

@@ -16,7 +16,7 @@ type CTAProps = (
 
 function CTA({
   as = "button",
-  variant = "button",
+  variant = "none",
   type = "button",
   className,
   children,

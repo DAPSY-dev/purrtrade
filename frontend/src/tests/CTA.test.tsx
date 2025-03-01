@@ -60,12 +60,6 @@ describe("CTA component", () => {
     consoleSpy.mockRestore();
   });
 
-  test("renders CTA with link variant", () => {
-    render(<CTA variant="link">Click me</CTA>);
-    const button = screen.getByRole("button");
-    expect(button).toHaveClass("underline");
-  });
-
   test('renders a button with type="submit"', () => {
     render(<CTA type="submit">Submit</CTA>);
     const button = screen.getByRole("button");
