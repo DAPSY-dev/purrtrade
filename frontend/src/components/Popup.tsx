@@ -70,9 +70,10 @@ function Popup({
 
   const classes = classNames([
     variant === "popup" &&
-      "popup-backdrop m-auto p-4 w-[calc(100%-2rem)] max-w-xl max-h-[calc(100dvh-2rem)] rounded-md bg-white shadow-md transition-discrete transition-[display,opacity] animate-fade-in",
+      "popup-fade popup-backdrop m-auto p-4 w-[calc(100%-2rem)] max-w-xl max-h-[calc(100dvh-2rem)] rounded-md bg-white shadow-md",
     variant === "popup" && !show && "opacity-0",
-    variant === "none" && "m-auto",
+    variant === "none" &&
+      "popup-fade m-auto w-[calc(100%-2rem)] max-h-[calc(100dvh-2rem)]",
     backdrop && "popup-backdrop",
     className,
   ]);
