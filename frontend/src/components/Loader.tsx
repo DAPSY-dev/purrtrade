@@ -1,24 +1,19 @@
+import { createPortal } from "react-dom";
 import { classNames } from "@/utils/helpers";
 
-type LoaderProps = {
-  fullPage?: boolean;
+type LoaderElementProps = {
   className?: string;
 };
 
-function Loader({ fullPage = false, className }: LoaderProps) {
-  const classes = classNames([
-    fullPage ? "fixed" : "absolute",
-    "inset-0 z-10 flex items-center justify-center bg-app-background p-4",
-    className,
-  ]);
-
+function LoaderElement({ className }: LoaderElementProps) {
   return (
-    <div className={classes}>
+    <div className={className}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
         height="24"
         viewBox="0 0 24 24"
+        data-testid="loader-img"
       >
         <g stroke="currentColor">
           <circle
@@ -59,6 +54,28 @@ function Loader({ fullPage = false, className }: LoaderProps) {
       </svg>
     </div>
   );
+}
+
+type LoaderProps = {
+  fullPage?: boolean;
+  className?: string;
+};
+
+function Loader({ fullPage = false, className }: LoaderProps) {
+  const classes = classNames([
+    fullPage ? "fixed" : "absolute z-10",
+    "inset-0 flex items-center justify-center bg-app-background p-4",
+    className,
+  ]);
+
+  if (fullPage) {
+    return createPortal(
+      <LoaderElement className={classes} />,
+      document.getElementById("portal-loader")!
+    );
+  }
+
+  return <LoaderElement className={classes} />;
 }
 
 export default Loader;

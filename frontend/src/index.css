@@ -9,6 +9,11 @@
 }
 
 @layer components {
+  #root,
+  #portal-loader {
+    @apply isolate;
+  }
+
   .popup-fade {
     @apply opacity-0 transition-[display,overlay,opacity] transition-discrete;
 
