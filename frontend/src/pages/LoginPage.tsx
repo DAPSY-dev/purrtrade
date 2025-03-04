@@ -26,7 +26,7 @@ function LoginPage() {
 
         <form
           onClick={handleSubmit}
-          className="grid gap-4 mx-auto w-full max-w-3xl"
+          className="mx-auto grid w-full max-w-3xl gap-4"
         >
           <div className="grid gap-4 md:grid-cols-2">
             <Input type="email" label={strings["EMAIL"]} />

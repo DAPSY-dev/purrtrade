@@ -8,7 +8,7 @@ type BoxProps = {
 
 function Box({ className, children }: BoxProps) {
   const classes = classNames([
-    "p-4 bg-white rounded-md shadow-md md:p-6",
+    "rounded-md bg-white p-4 shadow-md md:p-6",
     className,
   ]);
 

@@ -10,9 +10,7 @@
 
 @layer components {
   .popup-fade {
-    @apply opacity-0;
-    @apply transition-discrete;
-    @apply transition-[display,overlay,opacity];
+    @apply opacity-0 transition-[display,overlay,opacity] transition-discrete;
 
     &:popover-open {
       @apply opacity-100;
@@ -27,10 +25,7 @@
 
   .popup-backdrop {
     &::backdrop {
-      @apply bg-app-backdrop;
-      @apply opacity-0;
-      @apply transition-discrete;
-      @apply transition-[display,overlay,opacity];
+      @apply bg-app-backdrop opacity-0 transition-[display,overlay,opacity] transition-discrete;
     }
 
     &:popover-open::backdrop {

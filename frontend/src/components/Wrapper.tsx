@@ -7,7 +7,7 @@ type WrapperProps = {
 };
 
 function Wrapper({ className, children }: WrapperProps) {
-  const classes = classNames(["mx-auto px-4 w-full max-w-7xl", className]);
+  const classes = classNames(["mx-auto w-full max-w-7xl px-4", className]);
 
   return <div className={classes}>{children}</div>;
 }

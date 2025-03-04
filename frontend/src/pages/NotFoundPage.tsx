@@ -16,15 +16,15 @@ function NotFoundPage() {
       <SEO title={strings["TITLE_404"]} />
 
       <Box className="grid place-items-center gap-2 py-12 md:py-12">
-        <Heading className="text-6xl text-center md:text-6xl">
+        <Heading className="text-center text-6xl md:text-6xl">
           {strings["TITLE_404"]}
         </Heading>
 
-        <p className="text-2xl text-center">
+        <p className="text-center text-2xl">
           {strings["OOPS"]} {strings["PAGE_NOT_FOUND"]}
         </p>
 
-        <p className="text-lg text-center">
+        <p className="text-center text-lg">
           {strings["PAGE_MIGHT_BE_MOVED_OR_DELETED"]}
         </p>
 

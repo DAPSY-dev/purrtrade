@@ -24,7 +24,7 @@ function CTA({
 }: CTAProps) {
   const classes = classNames([
     variant === "button" &&
-      "inline-block px-6 py-3 bg-linear-to-br from-primary to-secondary rounded-md text-base text-white text-center transition not-disabled:cursor-pointer hover:scale-105 active:scale-95",
+      "inline-block rounded-md bg-linear-to-br from-primary to-secondary px-6 py-3 text-center text-base text-white transition not-disabled:cursor-pointer hover:scale-105 active:scale-95",
     variant === "link" &&
       "text-primary underline transition not-disabled:cursor-pointer hover:text-secondary",
     variant === "none" && null,
