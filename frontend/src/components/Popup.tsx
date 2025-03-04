@@ -78,11 +78,16 @@ function Popup({
     className,
   ]);
 
+  const closeButtonClasses = classNames([
+    variant === "popup" && "text-end",
+    variant === "none" && "text-end",
+  ]);
+
   return (
     <div {...{ popover: toggleMode }} className={classes} ref={popupRef}>
       <div className="grid gap-4">
         {closeButton ? (
-          <div className="text-end">
+          <div className={closeButtonClasses}>
             <CTA
               className="cursor-pointer text-black transition hover:text-secondary"
               onClick={handleHide}
