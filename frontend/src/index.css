@@ -13,34 +13,4 @@
   #portal-loader {
     @apply isolate;
   }
-
-  .popup-fade {
-    @apply opacity-0 transition-[display,overlay,opacity] transition-discrete;
-
-    &:popover-open {
-      @apply opacity-100;
-    }
-
-    @starting-style {
-      &:popover-open {
-        @apply opacity-0;
-      }
-    }
-  }
-
-  .popup-backdrop {
-    &::backdrop {
-      @apply bg-app-backdrop opacity-0 transition-[display,overlay,opacity] transition-discrete;
-    }
-
-    &:popover-open::backdrop {
-      @apply opacity-100;
-    }
-
-    @starting-style {
-      &:popover-open::backdrop {
-        @apply opacity-0;
-      }
-    }
-  }
 }
