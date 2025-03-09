@@ -21,6 +21,12 @@ if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
   exit();
 }
 
+if (!isset($_SERVER['HTTP_API_KEY']) || empty($_SERVER['HTTP_API_KEY'])) {
+  http_response_code(400);
+  echo json_encode(["error" => "API-KEY is required"]);
+  exit();
+}
+
 $dotenv = Dotenv::createImmutable(__DIR__ . "/../");
 $dotenv->load();
 
@@ -69,6 +75,7 @@ $router->addRoute("GET", "/strings", function ($query) use ($db) {
 //   // $db->delete("users", ["id" => $userId]);
 //   $apiKeys = $db->fetchAll("SELECT * FROM api_keys");
 //   echo json_encode(["API_KEYS" => $apiKeys]);
+//   // echo "\n\n" . hash("sha256", "DATA");
 // });
 
 $router->dispatch();
