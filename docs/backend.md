@@ -18,12 +18,12 @@
 
 Install:
 
-```
+```sh
 composer install
 ```
 
 Test:
 
-```
+```sh
 composer test
 ```

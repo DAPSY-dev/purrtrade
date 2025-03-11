@@ -4,13 +4,13 @@
 
 Use the following format for commit messages:
 
-```
+```txt
 <type>: <summary>
 ```
 
 Example:
 
-```
+```txt
 Bugfix: Lint errors
 ```
 

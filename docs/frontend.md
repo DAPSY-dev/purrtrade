@@ -14,37 +14,37 @@
 
 Install:
 
-```
+```sh
 npm install
 ```
 
 Start dev:
 
-```
+```sh
 npm run dev
 ```
 
 Test:
 
-```
+```sh
 npm run test
 ```
 
 Build:
 
-```
+```sh
 npm run build
 ```
 
 Lint:
 
-```
+```sh
 npm run lint
 ```
 
 Preview:
 
-```
+```sh
 npm run preview
 ```
 
@@ -52,7 +52,7 @@ Favicon check:
 
 - Start dev or build and preview before running favicon check;
 
-```
+```sh
 npm run faviconCheck
 ```
 
