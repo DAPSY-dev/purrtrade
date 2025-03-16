@@ -3,14 +3,14 @@ require_once __DIR__ . "/../vendor/autoload.php";
 require_once __DIR__ . "/../config/Config.php";
 require_once __DIR__ . "/../core/Router.php";
 require_once __DIR__ . "/../core/Database.php";
-require_once __DIR__ . "/../utils/helpers.php";
+require_once __DIR__ . "/../core/ApiKeyManager.php";
 require_once __DIR__ . "/routes/StringsRoutes.php";
 
 use const App\Config\ENDPOINTS;
 use \Dotenv\Dotenv;
 use App\Router\Router;
 use App\Database\Database;
-use App\Helpers;
+use App\ApiKeyManager\ApiKeyManager;
 use App\StringsRoutes\StringsRoutes;
 
 header("Access-Control-Allow-Origin: " . ENDPOINTS["FRONTEND_URL"]);
@@ -41,15 +41,14 @@ $db = new Database(
   $_ENV["DB_PASSWORD"]
 );
 
-$apiKeyData = Helpers\getApiKeyData($db, $_SERVER["HTTP_API_KEY"]);
-
-if (!$apiKeyData["success"]) {
-  http_response_code(403);
-  echo json_encode(["error" => $apiKeyData["error"]]);
+$apiKeyManager = new ApiKeyManager($db, $_SERVER["HTTP_API_KEY"]);
+$apiKeyData = $apiKeyManager->getData();
+if (!$apiKeyData) {
+  http_response_code(401);
+  echo json_encode(["error" => "Invalid API key"]);
   exit();
 }
-
-$apiPermissions = json_decode($apiKeyData["data"]["permissions"], true);
+$apiPermissions = json_decode($apiKeyData["permissions"], true);
 
 $router = new Router(ENDPOINTS["API_BASE_URL"]);
 
