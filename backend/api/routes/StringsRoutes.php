@@ -4,17 +4,17 @@ namespace App\StringsRoutes;
 class StringsRoutes
 {
   private $db;
-  private $apiPermissions;
+  private $apiStringsPermissions;
 
-  public function __construct($db, $apiPermissions)
+  public function __construct($db, $apiStringsPermissions)
   {
     $this->db = $db;
-    $this->apiPermissions = $apiPermissions;
+    $this->apiStringsPermissions = $apiStringsPermissions;
   }
 
   public function fetchStrings($query)
   {
-    if (!in_array("read", $this->apiPermissions)) {
+    if (!in_array("read", $this->apiStringsPermissions)) {
       http_response_code(403);
       return json_encode(["error" => "Permission denied"]);
     }

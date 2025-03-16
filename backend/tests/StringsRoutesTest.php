@@ -8,14 +8,14 @@ use App\Database\Database;
 class StringsRoutesTest extends TestCase
 {
   private $dbMock;
-  private $apiPermissions;
+  private $apiStringsPermissions;
   private $stringsRoutes;
 
   protected function setUp(): void
   {
     $this->dbMock = $this->createMock(Database::class);
-    $this->apiPermissions = ["read"];
-    $this->stringsRoutes = new StringsRoutes($this->dbMock, $this->apiPermissions);
+    $this->apiStringsPermissions = ["read"];
+    $this->stringsRoutes = new StringsRoutes($this->dbMock, $this->apiStringsPermissions);
   }
 
   public function testFetchStringsReturnsErrorWhenLangIsMissing()
@@ -34,8 +34,8 @@ class StringsRoutesTest extends TestCase
 
   public function testFetchStringsReturnsPermissionDeniedWhenNoReadPermission()
   {
-    $this->apiPermissions = [];
-    $this->stringsRoutes = new StringsRoutes($this->dbMock, $this->apiPermissions);
+    $this->apiStringsPermissions = [];
+    $this->stringsRoutes = new StringsRoutes($this->dbMock, $this->apiStringsPermissions);
 
     $query = ["lang" => "en"];
 
