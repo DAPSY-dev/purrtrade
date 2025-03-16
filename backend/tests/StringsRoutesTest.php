@@ -8,12 +8,14 @@ use App\Database\Database;
 class StringsRoutesTest extends TestCase
 {
   private $dbMock;
+  private $apiPermissions;
   private $stringsRoutes;
 
   protected function setUp(): void
   {
     $this->dbMock = $this->createMock(Database::class);
-    $this->stringsRoutes = new StringsRoutes($this->dbMock);
+    $this->apiPermissions = ["read"];
+    $this->stringsRoutes = new StringsRoutes($this->dbMock, $this->apiPermissions);
   }
 
   public function testFetchStringsReturnsErrorWhenLangIsMissing()
@@ -28,6 +30,23 @@ class StringsRoutesTest extends TestCase
     );
 
     $this->assertEquals(400, http_response_code());
+  }
+
+  public function testFetchStringsReturnsPermissionDeniedWhenNoReadPermission()
+  {
+    $this->apiPermissions = [];
+    $this->stringsRoutes = new StringsRoutes($this->dbMock, $this->apiPermissions);
+
+    $query = ["lang" => "en"];
+
+    $response = $this->stringsRoutes->fetchStrings($query);
+
+    $this->assertJsonStringEqualsJsonString(
+      json_encode(["error" => "Permission denied"]),
+      $response
+    );
+
+    $this->assertEquals(403, http_response_code());
   }
 
   public function testFetchStringsReturnsErrorWhenNoTranslationsFound()

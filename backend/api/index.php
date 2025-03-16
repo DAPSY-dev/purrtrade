@@ -3,12 +3,14 @@ require_once __DIR__ . "/../vendor/autoload.php";
 require_once __DIR__ . "/../config/Config.php";
 require_once __DIR__ . "/../core/Router.php";
 require_once __DIR__ . "/../core/Database.php";
+require_once __DIR__ . "/../utils/helpers.php";
 require_once __DIR__ . "/routes/StringsRoutes.php";
 
 use const App\Config\ENDPOINTS;
 use \Dotenv\Dotenv;
 use App\Router\Router;
 use App\Database\Database;
+use App\Helpers;
 use App\StringsRoutes\StringsRoutes;
 
 header("Access-Control-Allow-Origin: " . ENDPOINTS["FRONTEND_URL"]);
@@ -21,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
   exit();
 }
 
-if (!isset($_SERVER['HTTP_API_KEY']) || empty($_SERVER['HTTP_API_KEY'])) {
+if (!isset($_SERVER["HTTP_API_KEY"]) || empty($_SERVER["HTTP_API_KEY"])) {
   http_response_code(400);
   echo json_encode(["error" => "API-KEY is required"]);
   exit();
@@ -29,8 +31,6 @@ if (!isset($_SERVER['HTTP_API_KEY']) || empty($_SERVER['HTTP_API_KEY'])) {
 
 $dotenv = Dotenv::createImmutable(__DIR__ . "/../");
 $dotenv->load();
-
-$router = new Router(ENDPOINTS["API_BASE_URL"]);
 
 $db = new Database(
   $_ENV["DB_HOST"],
@@ -41,8 +41,20 @@ $db = new Database(
   $_ENV["DB_PASSWORD"]
 );
 
-$router->addRoute("GET", "/strings", function ($query) use ($db) {
-  $stringsRoutes = new StringsRoutes($db);
+$apiKeyData = Helpers\getApiKeyData($db, $_SERVER["HTTP_API_KEY"]);
+
+if (!$apiKeyData["success"]) {
+  http_response_code(403);
+  echo json_encode(["error" => $apiKeyData["error"]]);
+  exit();
+}
+
+$apiPermissions = json_decode($apiKeyData["data"]["permissions"], true);
+
+$router = new Router(ENDPOINTS["API_BASE_URL"]);
+
+$router->addRoute("GET", "/strings", function ($query) use ($db, $apiPermissions) {
+  $stringsRoutes = new StringsRoutes($db, $apiPermissions["strings"]);
   echo $stringsRoutes->fetchStrings($query);
 });
 
