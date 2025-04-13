@@ -6,12 +6,12 @@ class Router
   private $apiBaseUrl;
   private $routes = [];
 
-  public function __construct($apiBaseUrl)
+  public function __construct(string $apiBaseUrl)
   {
     $this->apiBaseUrl = $apiBaseUrl;
   }
 
-  public function addRoute($method, $route, $callback)
+  public function addRoute(string $method, string $route, callable $callback): void
   {
     $this->routes[] = [
       "method" => $method,
@@ -20,7 +20,7 @@ class Router
     ];
   }
 
-  public function dispatch()
+  public function dispatch(): void
   {
     $requestUri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
     $method = $_SERVER["REQUEST_METHOD"];

@@ -3,14 +3,18 @@ require_once __DIR__ . "/../vendor/autoload.php";
 require_once __DIR__ . "/../config/Config.php";
 require_once __DIR__ . "/../core/Router.php";
 require_once __DIR__ . "/../core/Database.php";
+require_once __DIR__ . "/../core/RedisHelper.php";
 require_once __DIR__ . "/../core/ApiKeyManager.php";
+require_once __DIR__ . "/../core/RateLimiter.php";
 require_once __DIR__ . "/routes/StringsRoutes.php";
 
 use const App\Config\ENDPOINTS;
 use \Dotenv\Dotenv;
 use App\Router\Router;
 use App\Database\Database;
+use App\RedisHelper\RedisHelper;
 use App\ApiKeyManager\ApiKeyManager;
+use App\RateLimiter\RateLimiter;
 use App\StringsRoutes\StringsRoutes;
 
 header("Access-Control-Allow-Origin: " . ENDPOINTS["FRONTEND_URL"]);
@@ -41,6 +45,12 @@ $db = new Database(
   $_ENV["DB_PASSWORD"]
 );
 
+$redis = new RedisHelper(
+  $_ENV["REDIS_SCHEME"],
+  $_ENV["REDIS_HOST"],
+  $_ENV["REDIS_PORT"]
+);
+
 $apiKeyManager = new ApiKeyManager($db, $_SERVER["HTTP_API_KEY"]);
 $apiKeyData = $apiKeyManager->getData();
 if (!$apiKeyData) {
@@ -49,6 +59,14 @@ if (!$apiKeyData) {
   exit();
 }
 $apiPermissions = json_decode($apiKeyData["permissions"], true);
+
+$rateLimiter = new RateLimiter($redis, 1000, 60);
+if (!$rateLimiter->rateLimit($apiKeyData["api_key"])) {
+  http_response_code(429);
+  header("Retry-After: 60");
+  echo json_encode(["error" => "Rate limit exceeded, try again later"]);
+  exit();
+}
 
 $router = new Router(ENDPOINTS["API_BASE_URL"]);
 

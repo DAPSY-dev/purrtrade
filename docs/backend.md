@@ -6,6 +6,8 @@
 
 - PHP: `v8.2.12`;
 
+- Redis: `v7.4.2`;
+
 ## Installation
 
 - Create the DB;

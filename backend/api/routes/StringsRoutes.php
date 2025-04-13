@@ -1,18 +1,22 @@
 <?php
 namespace App\StringsRoutes;
 
+require_once __DIR__ . "/../../core/Database.php";
+
+use App\Database\Database;
+
 class StringsRoutes
 {
   private $db;
   private $apiStringsPermissions;
 
-  public function __construct($db, $apiStringsPermissions)
+  public function __construct(Database $db, array $apiStringsPermissions)
   {
     $this->db = $db;
     $this->apiStringsPermissions = $apiStringsPermissions;
   }
 
-  public function fetchStrings($query)
+  public function fetchStrings(array $query): mixed
   {
     if (!in_array("read", $this->apiStringsPermissions)) {
       http_response_code(403);

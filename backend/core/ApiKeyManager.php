@@ -16,7 +16,7 @@ class ApiKeyManager
     $this->hashedApiKey = hash("sha256", $apiKey);
   }
 
-  public function getData()
+  public function getData(): mixed
   {
     $apiKeyData = $this->db->fetch("SELECT * FROM api_keys WHERE api_key = ?", [$this->hashedApiKey]);
 

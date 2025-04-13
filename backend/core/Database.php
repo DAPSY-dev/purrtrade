@@ -9,7 +9,7 @@ class Database
   private $pdo;
   private $stmt;
 
-  public function __construct($host, $port, $dbname, $charset, $user, $pass)
+  public function __construct(string $host, int $port, string $dbname, string $charset, string $user, string $pass)
   {
     $dsn = "mysql:host=$host;port=$port;dbname=$dbname;charset=$charset";
     $options = [
@@ -25,27 +25,27 @@ class Database
     }
   }
 
-  public function query($sql, $params = [])
+  public function query(string $sql, array $params = []): bool
   {
     $this->stmt = $this->pdo->prepare($sql);
     return $this->stmt->execute($params);
   }
 
-  public function fetch($sql, $params = [])
+  public function fetch(string $sql, array $params = []): mixed
   {
     $this->stmt = $this->pdo->prepare($sql);
     $this->stmt->execute($params);
     return $this->stmt->fetch();
   }
 
-  public function fetchAll($sql, $params = [])
+  public function fetchAll(string $sql, array $params = []): mixed
   {
     $this->stmt = $this->pdo->prepare($sql);
     $this->stmt->execute($params);
     return $this->stmt->fetchAll();
   }
 
-  public function insert($table, $data)
+  public function insert(string $table, array $data): string
   {
     $columns = implode(", ", array_keys($data));
     $placeholders = ":" . implode(", :", array_keys($data));
@@ -54,7 +54,7 @@ class Database
     return $this->pdo->lastInsertId();
   }
 
-  public function update($table, $data, $where)
+  public function update(string $table, array $data, array $where): bool
   {
     $set = implode(", ", array_map(fn($key) => "$key = :$key", array_keys($data)));
     $whereClause = implode(" AND ", array_map(fn($key) => "$key = :w_$key", array_keys($where)));
@@ -68,14 +68,14 @@ class Database
     return $this->query($sql, $params);
   }
 
-  public function delete($table, $where)
+  public function delete(string $table, array $where): bool
   {
     $whereClause = implode(" AND ", array_map(fn($key) => "$key = :$key", array_keys($where)));
     $sql = "DELETE FROM $table WHERE $whereClause";
     return $this->query($sql, $where);
   }
 
-  public function close()
+  public function close(): void
   {
     $this->pdo = null;
   }

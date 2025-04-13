@@ -55,7 +55,7 @@ class StringsRoutesTest extends TestCase
 
     $this->dbMock
       ->expects($this->once())
-      ->method('fetch')
+      ->method("fetch")
       ->willReturn(false);
 
     $response = $this->stringsRoutes->fetchStrings($query);
@@ -75,7 +75,7 @@ class StringsRoutesTest extends TestCase
     $mockedTranslations = json_encode(["hello" => "Hello", "bye" => "Goodbye"]);
     $this->dbMock
       ->expects($this->once())
-      ->method('fetch')
+      ->method("fetch")
       ->willReturn(["translations" => $mockedTranslations]);
 
     $response = $this->stringsRoutes->fetchStrings($query);
