@@ -80,13 +80,15 @@ describe("SEO component", () => {
   });
 
   test("renders custom keywords when provided", async () => {
-    renderSEO({ keywords: "Custom, Keywords" });
+    renderSEO({ keywords: "Custom, Page, Specific" });
     await waitFor(() => {
       const metaKeywords = document.querySelector('meta[name="keywords"]');
       expect(metaKeywords).not.toBeNull();
     });
     const metaKeywords = document.querySelector('meta[name="keywords"]');
-    expect(metaKeywords?.getAttribute("content")).toBe("Custom, Keywords");
+    expect(metaKeywords?.getAttribute("content")).toBe(
+      "Test, Keywords, Custom, Page, Specific"
+    );
   });
 
   test("renders the test image URL from VITE_FRONTEND_URL", async () => {

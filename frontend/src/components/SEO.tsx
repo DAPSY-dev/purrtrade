@@ -17,7 +17,9 @@ function SEO({ title, description, keywords, image, url }: SEOProps) {
     ? description
     : import.meta.env.VITE_APP_DESCRIPTION;
 
-  const metaKeywords = keywords ? keywords : import.meta.env.VITE_APP_KEYWORDS;
+  const metaKeywords = keywords
+    ? `${import.meta.env.VITE_APP_KEYWORDS}, ${keywords}`
+    : import.meta.env.VITE_APP_KEYWORDS;
 
   const metaImage = image
     ? image

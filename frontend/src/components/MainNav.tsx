@@ -7,7 +7,7 @@ type MainNavProps = {
 };
 
 function MainNav({ className }: MainNavProps) {
-  const { strings } = useStrings();
+  const strings = useStrings();
 
   if (strings === null) {
     return null;

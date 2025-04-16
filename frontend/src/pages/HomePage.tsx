@@ -4,7 +4,7 @@ import CTA from "@/components/CTA";
 import { useStrings } from "@/hooks/useStrings";
 
 function HomePage() {
-  const { strings } = useStrings();
+  const strings = useStrings();
 
   if (strings === null) {
     return null;

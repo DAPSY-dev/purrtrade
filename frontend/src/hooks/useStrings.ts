@@ -7,13 +7,12 @@ export function useStrings() {
   );
 
   if (loading) {
-    return { strings: null, loading: true, error: null };
+    return null;
   }
 
   if (error) {
-    console.error(error);
-    return { strings: null, loading: false, error: error };
+    throw new Error(error);
   }
 
-  return { strings: strings, loading: false, error: null };
+  return strings;
 }

@@ -1,33 +1,12 @@
 import { describe, test, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { ReactNode } from "react";
-import { legacy_createStore as createStore } from "redux";
-import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
 describe("ErrorBoundary component", () => {
-  const mockStore = createStore(() => {
-    return {
-      strings: {
-        strings: {
-          GO_BACK_HOME: "Go back home",
-          OOPS: "Oops!",
-          SOMETHING_WENT_WRONG: "Something went wrong.",
-          PLEASE_TRY_AGAIN_LATER: "Please try again later.",
-        },
-        loading: false,
-        error: null,
-      },
-    };
-  });
-
-  function renderWithProvider(ui: ReactNode) {
-    return render(
-      <Provider store={mockStore}>
-        <BrowserRouter>{ui}</BrowserRouter>
-      </Provider>
-    );
+  function renderWithRouter(ui: ReactNode) {
+    return render(<BrowserRouter>{ui}</BrowserRouter>);
   }
 
   test("should render fallback UI when an error occurs", () => {
@@ -38,7 +17,7 @@ describe("ErrorBoundary component", () => {
       throw new Error("Test error");
       return <></>;
     }
-    renderWithProvider(
+    renderWithRouter(
       <ErrorBoundary>
         <ProblemComponent />
       </ErrorBoundary>
@@ -48,7 +27,7 @@ describe("ErrorBoundary component", () => {
   });
 
   test("should render children if no error occurs", () => {
-    renderWithProvider(
+    renderWithRouter(
       <ErrorBoundary>
         <div>Children</div>
       </ErrorBoundary>
