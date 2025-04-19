@@ -56,11 +56,10 @@ Favicon check:
 npm run faviconCheck
 ```
 
-## Libs
-
-- Tailwind CSS;
-  - [How classes are sorted](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier#how-classes-are-sorted);
-
-## Tools
+## Libraries and tools notes
 
 - Favicon (Web App Manifest) generator: [RealFaviconGenerator](https://realfavicongenerator.net);
+
+- Tailwind CSS;
+
+  - [How classes are sorted](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier#how-classes-are-sorted);
