@@ -1,8 +1,6 @@
 # Contributing
 
-## Commit guidelines
-
-Types:
+## Types
 
 - Add;
 
@@ -13,6 +11,22 @@ Types:
 - Refactor;
 
 - Bugfix;
+
+## Branch naming
+
+Use the following format for branch names:
+
+```txt
+<type>/<short-description>
+```
+
+Example:
+
+```txt
+bugfix/lint-errors
+```
+
+## Commit guidelines
 
 Use the following format for commit messages:
 
