@@ -37,7 +37,7 @@ function Input({ label, type = "text", id, className, ...rest }: InputProps) {
       <input
         type={type}
         id={inputId}
-        className="block w-full rounded-md border border-primary bg-white p-3 text-base transition hover:border-secondary focus:border-secondary"
+        className="block w-full rounded-md bg-white p-3 text-base shadow-sm transition not-disabled:hover:shadow-md focus:shadow-md disabled:opacity-50"
         {...(rest as InputHTMLAttributes<HTMLInputElement>)}
       />
     </div>

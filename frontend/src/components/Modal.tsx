@@ -33,7 +33,7 @@ function Modal({
   ]);
 
   const overlayClasses = classNames([
-    "fixed inset-0 flex bg-app-backdrop p-4 opacity-0 transition-opacity duration-150",
+    "fixed inset-0 flex bg-app-backdrop p-4 opacity-0 transition duration-150",
     overlayClassName,
   ]);
 

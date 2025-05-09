@@ -1,5 +1,4 @@
 import SEO from "@/components/SEO";
-import Box from "@/components/Box";
 import Heading from "@/components/Heading";
 import CTA from "@/components/CTA";
 import { useStrings } from "@/hooks/useStrings";
@@ -15,7 +14,7 @@ function NotFoundPage() {
     <>
       <SEO title={strings["TITLE_404"]} />
 
-      <Box className="grid place-items-center gap-2 py-12 md:py-12">
+      <div className="grid place-items-center gap-2 py-12 md:py-12">
         <Heading className="text-center text-6xl md:text-6xl">
           {strings["TITLE_404"]}
         </Heading>
@@ -31,7 +30,7 @@ function NotFoundPage() {
         <CTA as="router-link" variant="button" to="/" className="mt-4">
           {strings["GO_BACK_HOME"]}
         </CTA>
-      </Box>
+      </div>
     </>
   );
 }

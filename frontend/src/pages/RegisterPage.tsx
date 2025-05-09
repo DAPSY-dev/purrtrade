@@ -1,6 +1,5 @@
 import { FormEvent } from "react";
 import SEO from "@/components/SEO";
-import Box from "@/components/Box";
 import Heading from "@/components/Heading";
 import Input from "@/components/Input";
 import CTA from "@/components/CTA";
@@ -21,13 +20,10 @@ function RegisterPage() {
     <>
       <SEO title={strings["REGISTER"]} />
 
-      <Box className="grid gap-6">
+      <div className="grid gap-6">
         <Heading>{strings["REGISTER"]}</Heading>
 
-        <form
-          onClick={handleSubmit}
-          className="mx-auto grid w-full max-w-3xl gap-4"
-        >
+        <form onClick={handleSubmit} className="grid gap-4">
           <div className="grid gap-4 md:grid-cols-2">
             <Input type="text" label={strings["NAME"]} />
             <Input type="email" label={strings["EMAIL"]} />
@@ -45,7 +41,7 @@ function RegisterPage() {
             </CTA>
           </div>
         </form>
-      </Box>
+      </div>
     </>
   );
 }
