@@ -74,44 +74,28 @@ describe("Modal component", () => {
     expect(overlay!.className).toContain("custom-overlay");
   });
 
-  test('calls "onRequestClose" when requested', async () => {
+  test('renders close button and triggers "onRequestClose" when clicked', async () => {
     const user = userEvent.setup();
     const onRequestClose = vi.fn();
     renderWithProvider(
       <Modal isOpen={true} onRequestClose={onRequestClose}>
-        <button type="button" onClick={onRequestClose}>
-          Close
-        </button>
-        <p>Modal content</p>
+        <p>Modal with close button</p>
       </Modal>
     );
-    await user.click(screen.getByText("Close"));
+    const closeButton = screen.getByRole("button", { name: "Close" });
+    expect(closeButton).toBeInTheDocument();
+    await user.click(closeButton);
     expect(onRequestClose).toHaveBeenCalled();
   });
 
-  test('renders close button when "closeButton" is "true" and "onRequestClose" is provided', () => {
-    const onRequestClose = vi.fn();
+  test('does not render close button when "shouldRenderCloseButton" is "false"', () => {
     renderWithProvider(
-      <Modal isOpen={true} closeButton={true} onRequestClose={onRequestClose}>
-        <p>Modal content with close button</p>
+      <Modal isOpen={true} shouldRenderCloseButton={false}>
+        <p>No close button</p>
       </Modal>
     );
-    expect(screen.getByLabelText("Close")).toBeInTheDocument();
-  });
-
-  test('does not render close button when "closeButton" is "true" but "onRequestClose" is not provided', () => {
-    const consoleError = vi
-      .spyOn(console, "error")
-      .mockImplementation(() => {});
-    renderWithProvider(
-      <Modal isOpen={true} closeButton={true}>
-        <p>Modal content without onRequestClose</p>
-      </Modal>
-    );
-    expect(screen.queryByLabelText("Close")).not.toBeInTheDocument();
-    expect(consoleError).toHaveBeenCalledWith(
-      "Modal: 'onRequestClose' is required when 'closeButton' is true\n"
-    );
-    consoleError.mockRestore();
+    expect(
+      screen.queryByRole("button", { name: "Close" })
+    ).not.toBeInTheDocument();
   });
 });

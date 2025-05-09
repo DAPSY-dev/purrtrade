@@ -8,14 +8,14 @@ import { classNames } from "@/utils/helpers";
 ReactModal.setAppElement("#root");
 
 type ModalProps = ReactModalProps & {
-  closeButton?: boolean;
+  shouldRenderCloseButton?: boolean;
   className?: string;
   overlayClassName?: string;
   children?: ReactNode;
 };
 
 function Modal({
-  closeButton = false,
+  shouldRenderCloseButton = true,
   className,
   overlayClassName,
   children,
@@ -25,12 +25,6 @@ function Modal({
 
   if (strings === null) {
     return null;
-  }
-
-  if (import.meta.env.DEV && closeButton && !rest.onRequestClose) {
-    console.error(
-      "Modal: 'onRequestClose' is required when 'closeButton' is true\n"
-    );
   }
 
   const classes = classNames([
@@ -54,7 +48,7 @@ function Modal({
       closeTimeoutMS={150}
       {...(rest as ReactModalProps)}
     >
-      {closeButton && rest.onRequestClose && (
+      {shouldRenderCloseButton && rest.onRequestClose && (
         <div className="pb-4 text-end">
           <CTA
             className="cursor-pointer leading-none text-black transition hover:text-secondary"
