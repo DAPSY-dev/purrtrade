@@ -1,0 +1,11 @@
+{
+  "App": {
+    "description": "App description"
+  },
+  "LocaleSwitcher": {
+    "label": "Change language"
+  },
+  "Global": {
+    "welcome": "Welcome"
+  }
+}

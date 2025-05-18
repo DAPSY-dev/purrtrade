@@ -6,5 +6,10 @@ export default defineConfig({
   plugins: [tsconfigPaths(), react()],
   test: {
     environment: "jsdom",
+    server: {
+      deps: {
+        inline: ["next-intl"],
+      },
+    },
   },
 });

@@ -1,16 +1,5 @@
-import Image from "next/image";
+import { redirect } from "next/navigation";
 
-export default function Home() {
-  return (
-    <div>
-      <Image
-        src="/images/logo.svg"
-        alt={`${process.env.APP_NAME} logo`}
-        width={300}
-        height={64}
-        priority
-      />
-      <h1>{process.env.APP_NAME}</h1>
-    </div>
-  );
+export default function RootPage() {
+  redirect(process.env.APP_DEFAULT_LOCALE!);
 }

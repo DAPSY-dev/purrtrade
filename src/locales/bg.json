@@ -1,0 +1,11 @@
+{
+  "App": {
+    "description": "Описание на приложението"
+  },
+  "LocaleSwitcher": {
+    "label": "Промяна на езика"
+  },
+  "Global": {
+    "welcome": "Здравейте"
+  }
+}

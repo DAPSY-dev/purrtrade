@@ -1,10 +1,16 @@
 import type { MetadataRoute } from "next";
+import { getTranslations } from "next-intl/server";
 
-export default function manifest(): MetadataRoute.Manifest {
+export default async function manifest(): Promise<MetadataRoute.Manifest> {
+  const t = await getTranslations({
+    namespace: "App",
+    locale: process.env.APP_DEFAULT_LOCALE!,
+  });
+
   return {
     name: process.env.APP_NAME,
     short_name: process.env.APP_NAME,
-    description: process.env.APP_DESCRIPTION,
+    description: t("description"),
     start_url: "/",
     display: "standalone",
     background_color: "#fff",
@@ -12,7 +18,7 @@ export default function manifest(): MetadataRoute.Manifest {
     icons: [
       {
         src: "/favicon.ico",
-        sizes: "any",
+        sizes: "48x48",
         type: "image/x-icon",
       },
       {

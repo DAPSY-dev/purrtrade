@@ -1,13 +1,23 @@
+import { describe, expect, test, afterEach, vi } from "vitest";
+import { screen, cleanup } from "@testing-library/react";
+import { createNextNavigationMock } from "@tests/mocks/nextNavigationMock";
+import { renderWithLocales } from "@tests/utils/locales";
+import Page from "@app/[locale]/page";
 import "@/envConfig.ts";
-import { describe, expect, test } from "vitest";
-import { render, screen } from "@testing-library/react";
-import Page from "@app/page";
+
+vi.mock("next/navigation", () => createNextNavigationMock());
 
 describe("Page", () => {
-  test("Renders app name as level 1 heading", () => {
-    render(<Page />);
+  afterEach(() => {
+    vi.clearAllMocks();
+    cleanup();
+  });
+
+  test("Renders welcome message as level 1 heading", () => {
+    renderWithLocales(<Page />);
+
     expect(
-      screen.getByRole("heading", { level: 1, name: process.env.APP_NAME })
+      screen.getByRole("heading", { level: 1, name: "Welcome" })
     ).toBeDefined();
   });
 });
