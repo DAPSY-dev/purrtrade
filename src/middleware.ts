@@ -1,7 +1,12 @@
 import createMiddleware from "next-intl/middleware";
 import { routing } from "@i18n/routing";
+import { auth } from "@lib/auth";
 
-export default createMiddleware(routing);
+const i18nMiddleware = createMiddleware(routing);
+
+export default auth((request) => {
+  return i18nMiddleware(request);
+});
 
 export const config = {
   // Match all pathnames except for:

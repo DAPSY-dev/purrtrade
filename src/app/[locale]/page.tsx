@@ -7,7 +7,7 @@ export default function HomePage() {
   const t = useTranslations("Global");
 
   return (
-    <div className="grid gap-4">
+    <div className="grid gap-4 justify-items-center">
       <Image
         src="/images/logo.svg"
         alt={`${process.env.APP_NAME} logo`}
@@ -18,13 +18,11 @@ export default function HomePage() {
 
       <h1 className="text-3xl">{t("welcome")}</h1>
 
-      <div className="flex flex-wrap gap-8">
-        <LocaleSwitcher />
+      <LocaleSwitcher />
 
-        <Link href="/x" className="underline">
-          Not found
-        </Link>
-      </div>
+      <Link href="/signin" className="underline">
+        Sign In
+      </Link>
     </div>
   );
 }

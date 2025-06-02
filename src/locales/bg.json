@@ -5,6 +5,9 @@
   "LocaleSwitcher": {
     "label": "Промяна на езика"
   },
+  "SignIn": {
+    "title": "Вход"
+  },
   "Global": {
     "welcome": "Здравейте"
   }

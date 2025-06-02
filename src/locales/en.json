@@ -5,6 +5,9 @@
   "LocaleSwitcher": {
     "label": "Change language"
   },
+  "SignIn": {
+    "title": "Sign In"
+  },
   "Global": {
     "welcome": "Welcome"
   }
