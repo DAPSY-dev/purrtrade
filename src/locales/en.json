@@ -5,6 +5,20 @@
   "LocaleSwitcher": {
     "label": "Change language"
   },
+  "SignIn": {
+    "email": "Email",
+    "password": "Password",
+    "cta": "Sign In"
+  },
+  "SignUp": {
+    "email": "Email",
+    "password": "Password",
+    "repeatPassword": "Repeat password",
+    "cta": "Sign Up"
+  },
+  "SignOut": {
+    "cta": "Sign Out"
+  },
   "Global": {
     "welcome": "Welcome"
   }

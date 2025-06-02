@@ -5,6 +5,20 @@
   "LocaleSwitcher": {
     "label": "Промяна на езика"
   },
+  "SignIn": {
+    "email": "Имейл",
+    "password": "Парола",
+    "cta": "Вход"
+  },
+  "SignUp": {
+    "email": "Имейл",
+    "password": "Парола",
+    "repeatPassword": "Повторете паролата",
+    "cta": "Регистрация"
+  },
+  "SignOut": {
+    "cta": "Изход"
+  },
   "Global": {
     "welcome": "Здравейте"
   }

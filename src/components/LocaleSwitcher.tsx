@@ -34,17 +34,23 @@ export default function LocaleSwitcher() {
   }
 
   return (
-    <select
-      defaultValue={locale}
-      disabled={isPending}
-      onChange={onSelectChange}
-      aria-label={t("label")}
-    >
-      {languages.map((lang) => (
-        <option value={lang.code} key={lang.code}>
-          {lang.label}
-        </option>
-      ))}
-    </select>
+    <div>
+      <span>
+        {t("label")} <b>(Uses cookies)</b>:
+      </span>
+      <select
+        className="border"
+        defaultValue={locale}
+        disabled={isPending}
+        onChange={onSelectChange}
+        aria-label={t("label")}
+      >
+        {languages.map((lang) => (
+          <option value={lang.code} key={lang.code}>
+            {lang.label}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 }

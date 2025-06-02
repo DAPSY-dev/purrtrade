@@ -4,19 +4,35 @@
 
 - Node.js: `v20.18.0`
 
-## Installation
+## Installation and setup
 
-Install dependencies:
+1. Install dependencies:
 
-```sh
-npm install
-```
+   ```sh
+   npm install
+   ```
 
-## Environment setup
+2. Create `.env.local`, `.env.test`, and `.env` from `.env.example`.
 
-Create `.env.development`, `.env.test`, and `.env.production` from `.env.example`.
+3. Migrate database:
+
+   ```sh
+   npm run db:migrate
+   ```
+
+4. Generate database client:
+
+   ```sh
+   npm run db:generate
+   ```
 
 ## Common scripts
+
+View database:
+
+```sh
+npm run db:viewer
+```
 
 Start in development mode:
 
