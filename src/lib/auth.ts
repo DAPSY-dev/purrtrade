@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-// TODO: import { saltAndHashPassword } from "@/utils/password"
+import { comparePasswords } from "@lib/validation";
 
 // https://authjs.dev/guides/pages/built-in-pages
 // https://authjs.dev/getting-started/authentication/credentials
@@ -31,6 +31,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       authorize: async (credentials) => {
         let user = null;
 
+        // console.log(credentials);
+
         // logic to salt and hash password
         // TODO: const pwHash = saltAndHashPassword(credentials.password)
 
@@ -40,7 +42,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         if (!user) {
           // No user found, so this is their first attempt to login
           // Optionally, this is also the place you could do a user registration
-          throw new Error("Invalid credentials.");
+          // throw new Error("Invalid credentials." + " dapsy!");
+          return null;
         }
 
         // return user object with their profile data

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { Link } from "@i18n/navigation";
 import LocaleSwitcher from "@components/LocaleSwitcher";
+import SignIn from "@components/SignIn";
 
 export default function HomePage() {
   const t = useTranslations("Global");
@@ -20,9 +20,7 @@ export default function HomePage() {
 
       <LocaleSwitcher />
 
-      <Link href="/signin" className="underline">
-        Sign In
-      </Link>
+      <SignIn />
     </div>
   );
 }
