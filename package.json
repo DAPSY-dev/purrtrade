@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "db:migrate": "npx prisma migrate dev --schema ./src/lib/db/schema.prisma",
+    "db:viewer": "npx prisma studio --schema ./src/lib/db/schema.prisma",
     "dev": "next dev --turbopack",
     "test": "vitest",
     "build": "next build",
@@ -11,7 +13,9 @@
     "faviconCheck": "npx realfavicon check 3000"
   },
   "dependencies": {
+    "@auth/prisma-adapter": "^2.9.1",
     "@next/env": "^15.3.2",
+    "@prisma/client": "^6.9.0",
     "bcrypt": "^6.0.0",
     "next": "15.3.2",
     "next-auth": "^5.0.0-beta.28",
@@ -32,6 +36,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
     "jsdom": "^26.1.0",
+    "prisma": "^6.9.0",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vite-tsconfig-paths": "^5.1.4",
